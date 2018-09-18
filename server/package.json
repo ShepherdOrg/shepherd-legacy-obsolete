@@ -1,0 +1,45 @@
+{
+  "name": "shepherd-server",
+  "version": "0.0.1",
+  "description": "Integrate and serve data for shepherd-ui",
+  "private": true,
+  "main": "run.js",
+  "dependencies": {
+    "autoprefixer-core": "^3.1.0",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.8.1",
+    "cookie-parser": "^1.3.2",
+    "db-migrate": "^0.10.0-beta.20",
+    "db-migrate-pg": "^0.1.11",
+    "docker-registry-client": "^3.2.12",
+    "express": "^4.10.4",
+    "express-session": "^1.9.2",
+    "jade": "^1.7.0",
+    "lodash": "^4.17.4",
+    "parallelshell": "^2.0.0",
+    "pg": "^6.1.0",
+    "socket.io": "^1.5.1"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "chai": "4.1.2",
+    "nodemon": "^1.12.1",
+    "jasmine": "^2.5.2",
+    "jasmine-console-reporter": "^1.2.7",
+    "should": "^11.1.1",
+    "socket.io-client": "^1.6.0"
+  },
+  "scripts": {
+    "startclient": "cd ./client && npm run start",
+    "buildclient": "cd ./client && npm run build",
+    "clean": "if [ -d ./build ]; then rm -r ./build; fi",
+    "start": "export NODE_PATH=. && npm run migratedb && nodemon run.js",
+    "createbuild": "[ -d build ] || mkdir build ",
+    "build": "export NODE_PATH=. && npm run clean && npm run createbuild && npm run buildclient && mv client/build build/static && cp -R server build/server && mkdir -p build/client/src && cp -r client/src/common build/client/src && cp run.js build && cp runserver.sh build",
+    "test": "export NODE_PATH=. && ./node_modules/.bin/nodemon ./node_modules/.bin/jasmine JASMINE_CONFIG_PATH=./jasmine.json",
+    "dev": "./node_modules/.bin/parallelshell 'npm run start' 'npm run startclient'",
+    "migratedb": "db-migrate --config ./server/database.json --migrations-dir ./server/migrations up",
+    "startdockerdb": "docker run -p 5432:5432 --name pg2 -e POSTGRES_PASSWORD=mysecretpassword -d postgres",
+    "connectdockerdb": "docker run -it --rm --link pg2:postgres postgres psql -h postgres -U postgres"
+  }
+}

@@ -1,0 +1,1 @@
+../kubernetes/deploymentdocument-classifier.js

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: www-icelandair-com-nginx-acls-test--la--feat-ure
+  labels:
+    team: flip
+    ttl-hours: '120'
+data:
+  whitelist: '${Base64Decode:WWW_ICELANDAIR_IP_WHITELIST}'

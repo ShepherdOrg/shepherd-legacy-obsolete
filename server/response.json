@@ -1,0 +1,21 @@
+{
+  "protocol": "https:",
+  "slashes": true,
+  "auth": null,
+  "host": "someregistry-example.s3-eu-west-1.amazonaws.com",
+  "port": null,
+  "hostname": "someregistry-example.s3-eu-west-1.amazonaws.com",
+  "hash": null,
+  "search": "?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIHJ4IOENLIDNL35Q%2F20171008%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20171008T202525Z&X-Amz-Expires=1200&X-Amz-SignedHeaders=host&X-Amz-Signature=13df4381c48bdb5607ff0b034cddc78e24a5443b76f3e80611568ad0483c95fc",
+  "query": {
+    "X-Amz-Algorithm": "AWS4-HMAC-SHA256",
+    "X-Amz-Credential": "AKIAIHJ9IKENLMDNI35Q/20171008/eu-west-1/s3/aws4_request",
+    "X-Amz-Date": "20171008T202525Z",
+    "X-Amz-Expires": "1200",
+    "X-Amz-SignedHeaders": "host",
+    "X-Amz-Signature": "13df4381c48bdb5607ff0b034cddc78e24a5443b76f3e80611568ad0483c95fc"
+  },
+  "pathname": "/registry/docker/registry/v2/blobs/sha256/4e/4ee37177d71be9c924dea8f2199cc06a02e9e8268097e54ac6e7286282cb4d5b/data",
+  "path": "/registry/docker/registry/v2/blobs/sha256/4e/4ee37177d71be9c924dea8f2199cc06a02e9e8268097e54ac6e7286282cb4d5b/data?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIHJ4IOENLIDNL35Q%2F20171008%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20171008T202525Z&X-Amz-Expires=1200&X-Amz-SignedHeaders=host&X-Amz-Signature=13df4381c48bdb5607ff0b034cddc78e24a5443b76f3e80611568ad0483c95fc",
+  "href": "https://someregistry-example.s3-eu-west-1.amazonaws.com/registry/docker/registry/v2/blobs/sha256/4e/4ee37177d71be9c924dea8f2199cc06a02e9e8268097e54ac6e7286282cb4d5b/data?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIHJ4IOENLIDNL35Q%2F20171008%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20171008T202525Z&X-Amz-Expires=1200&X-Amz-SignedHeaders=host&X-Amz-Signature=13df4381c48bdb5607ff0b034cddc78e24a5443b76f3e80611568ad0483c95fc"
+}

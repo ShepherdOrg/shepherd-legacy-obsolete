@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo >> /testrun/aws.txt
+echo $@ >> /testrun/aws.txt
+
+if [ "$2" = "describe-db-instances" ]; then
+	echo -n "testrunmicroservices.fulladdress.at.aws.rds.com"
+fi
+if [ "$2" = "describe-cache-clusters" ]; then
+	echo -n "redis.fulladdress.at.aws.elasticache.com"
+fi
+if [ "$2" = "describe-replication-groups" ]; then
+	echo -n "redis-ha.fulladdress.at.aws.elasticache.com"
+fi
+if [ "$2" = "describe-elasticsearch-domain" ]; then
+	echo -n "search-test-icelandair-es-something.eu-west-1.es.amazonaws.com"
+fi
+if [ "$2" = "describe-clusters" ]; then
+	if [ "${INCLUDE_REDSHIFT}" = "false" ];
+	then
+		echo -n ""
+	else
+		echo -n "search-test-icelandair-es-something.eu-west-1.es.amazonaws.com"
+	fi
+fi
+
+exit 0

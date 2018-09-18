@@ -1,0 +1,584 @@
+{
+    "ResourceRecordSets": [
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z32O12XQLNTSW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "dualstack.a7c9020e2de5d11e6a7b006b081dbf0f-1482005888.someregion.elb.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "old-mycompany.is."
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "ns-222.awsdns-13.com."
+                },
+                {
+                    "Value": "ns-222.awsdns-25.org."
+                },
+                {
+                    "Value": "ns-222.awsdns-43.net."
+                },
+                {
+                    "Value": "ns-222.awsdns-48.co.uk."
+                }
+            ],
+            "Type": "NS",
+            "Name": "mycompany.is.",
+            "TTL": 172800
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "ns-222.awsdns-13.com. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400"
+                }
+            ],
+            "Type": "SOA",
+            "Name": "mycompany.is.",
+            "TTL": 900
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "\"il9gi6QFC9nlv9vFs/YUr1PUaowOvYPuNFHw9RmvIdI=\""
+                }
+            ],
+            "Type": "TXT",
+            "Name": "_amazonses.mycompany.is.",
+            "TTL": 1800
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z32O12XQLNTSW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "dualstack.ae436d64ff50a11e680d0025b8650d64-149152699.someregion.elb.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "alpha-stage.mycompany.is."
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z32O12XQLNTSW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "dualstack.a7c9020e2de5d11e6a7b006b081dbf0f-1482005888.someregion.elb.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "beta.mycompany.is."
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z32O12XQLNTSW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "dualstack.af78742b3efbd11e6a8c806c793a066d-709216793.someregion.elb.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "business-stage.mycompany.is."
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z32O12XQLNTSW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "dualstack.ae371b07eb71911e6b8da06ac32a160f-1479703354.someregion.elb.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "business.mycompany.is."
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z2FDTNDATAQYW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "c1ppclz7lhc9fk.somewhere.net."
+            },
+            "Type": "A",
+            "Name": "cdn.mycompany.is."
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "af13f75f242c411e6bae302a89f54b16-671827549.someregion.elb.amazonaws.com"
+                }
+            ],
+            "Type": "CNAME",
+            "Name": "content.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z32O12XQLNTSW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "dualstack.a9bb1d064c05611e6b8da06ac32a160f-1140160443.someregion.elb.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "customer-analytics.mycompany.is."
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z32O12XQLNTSW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "dualstack.a9226186c5e4411e6824702ce2e2d4ce-1039677112.someregion.elb.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "dashboard.mycompany.is."
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "ec2-52-30-148-12.someregion.compute.amazonaws.com"
+                }
+            ],
+            "Type": "CNAME",
+            "Name": "unittest-deployment.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "63.208.245.149"
+                }
+            ],
+            "Type": "A",
+            "Name": "dev-icelandair-somezone.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z32O12XQLNTSW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "dualstack.a86074032e49011e6a7b006b081dbf0f-1700150101.someregion.elb.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "dev-my.mycompany.is."
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z32O12XQLNTSW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "dualstack.ae411bef1b71911e6b8da06ac32a160f-1831801284.someregion.elb.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "dev.mycompany.is."
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "63.214.159.60"
+                }
+            ],
+            "Type": "A",
+            "Name": "api.cluster.dev.mycompany.is.",
+            "TTL": 60
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "10.252.122.208"
+                }
+            ],
+            "Type": "A",
+            "Name": "api.internal.cluster.dev.mycompany.is.",
+            "TTL": 60
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "10.252.122.208"
+                }
+            ],
+            "Type": "A",
+            "Name": "etcd-somezone.internal.cluster.dev.mycompany.is.",
+            "TTL": 60
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "10.252.122.208"
+                }
+            ],
+            "Type": "A",
+            "Name": "etcd-events-somezone.internal.cluster.dev.mycompany.is.",
+            "TTL": 60
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "63.210.146.167"
+                }
+            ],
+            "Type": "A",
+            "Name": "docker-prod.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "63.18.138.44"
+                }
+            ],
+            "Type": "A",
+            "Name": "docker.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "63.58.245.143"
+                }
+            ],
+            "Type": "A",
+            "Name": "icecluster-somezone.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "63.58.198.86"
+                }
+            ],
+            "Type": "A",
+            "Name": "icecluster-eu-central-1b.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "63.215.10.46"
+                }
+            ],
+            "Type": "A",
+            "Name": "icecluster-us-east-1a.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "63.215.122.153"
+                }
+            ],
+            "Type": "A",
+            "Name": "icecluster-us-east-1b.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "63.19.215.41"
+                }
+            ],
+            "Type": "A",
+            "Name": "icesecure-somezone.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "63.208.95.73"
+                }
+            ],
+            "Type": "A",
+            "Name": "icesecure-eu-west-1b.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z32O12XQLNTSW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "dualstack.a7c9020e2de5d11e6a7b006b081dbf0f-1482005888.someregion.elb.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "kibana.mycompany.is."
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "acf182cff1d1411e6824702ce2e2d4ce-2061629521.someregion.elb.amazonaws.com"
+                }
+            ],
+            "Type": "CNAME",
+            "Name": "labs.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "63.19.2.125"
+                }
+            ],
+            "Type": "A",
+            "Name": "log-dev.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "63.19.187.103"
+                }
+            ],
+            "Type": "A",
+            "Name": "log-prod.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z32O12XQLNTSW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "dualstack.a984cc587df1411e6a7b006b081dbf0f-1386956527.someregion.elb.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "login.mycompany.is."
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "ns-1264.awsdns-30.org."
+                },
+                {
+                    "Value": "ns-774.awsdns-32.net."
+                },
+                {
+                    "Value": "ns-198.awsdns-24.com."
+                },
+                {
+                    "Value": "ns-1649.awsdns-14.co.uk."
+                }
+            ],
+            "Type": "NS",
+            "Name": "prod.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z32O12XQLNTSW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "dualstack.a6e9f44acff6a11e680d0025b8650d64-1234093640.someregion.elb.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "redshift.mycompany.is."
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z32O12XQLNTSW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "dualstack.a245a2875b70f11e6b8da06ac32a160f-1723225544.someregion.elb.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "user-profile-dev.mycompany.is."
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z32O12XQLNTSW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "dualstack.a07067ec9f44a11e6a8c806c793a066d-64850263.someregion.elb.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "user-profile-stage.mycompany.is."
+        },
+        {
+            "TrafficPolicyInstanceId": "28b54cdc-4cb1-4990-8ad7-2201261ddec4",
+            "Type": "CNAME",
+            "Name": "user-profile.mycompany.is.",
+            "ResourceRecords": [
+                {
+                    "Value": "This resource record set includes an attribute that is unsupported on this Route 53 endpoint. Please consider using a newer endpoint or a tool that does so."
+                }
+            ]
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "63.58.220.201"
+                }
+            ],
+            "Type": "A",
+            "Name": "stage-cluster-somezone.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "23.22.26.9"
+                }
+            ],
+            "Type": "A",
+            "Name": "stage-cluster-us-east-1a.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "63.16.185.91"
+                }
+            ],
+            "Type": "A",
+            "Name": "stage-icesecure-somezone.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "ns-333.awsdns-01.org."
+                },
+                {
+                    "Value": "ns-333.awsdns-63.com."
+                },
+                {
+                    "Value": "ns-333.awsdns-07.net."
+                },
+                {
+                    "Value": "ns-333.awsdns-62.co.uk."
+                }
+            ],
+            "Type": "NS",
+            "Name": "stage.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z32O12XQLNTSW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "dualstack.a8a8bec520ef011e7bf0c06b32e87255-1960162450.someregion.elb.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "unittest-business-old.mycompany.is."
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "\"some irrelevant value\""
+                },
+                {
+                    "Value": "\"unittest_toolchain_managed\""
+                }
+            ],
+            "Type": "TXT",
+            "Name": "unittest-business-old.mycompany.is.",
+            "TTL": 60
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "\"Some old existing TXT record value\""
+                }
+            ],
+            "Type": "TXT",
+            "Name": "mycompany.is.",
+            "TTL": 60
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z32O12XQLNTSW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "dualstack.ae411bef1b71911e6b8da06ac32a160f-1831801284.someregion.elb.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "unittest-alpha.mycompany.is."
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z32O12XQLNTSW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "dualstack.a8a8bec520ef011e7bf0c06b32e87255-1960162450.someregion.elb.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "unittest-business.mycompany.is."
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "\"unittest_toolchain_managed\""
+                }
+            ],
+            "Type": "TXT",
+            "Name": "unittest-business.mycompany.is.",
+            "TTL": 60
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "34.251.22.194"
+                }
+            ],
+            "Type": "A",
+            "Name": "api.cluster.test.mycompany.is.",
+            "TTL": 60
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "10.222.1.60"
+                }
+            ],
+            "Type": "A",
+            "Name": "api.internal.cluster.test.mycompany.is.",
+            "TTL": 60
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "10.222.1.60"
+                }
+            ],
+            "Type": "A",
+            "Name": "etcd-a.internal.cluster.test.mycompany.is.",
+            "TTL": 60
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "10.222.1.60"
+                }
+            ],
+            "Type": "A",
+            "Name": "etcd-events-a.internal.cluster.test.mycompany.is.",
+            "TTL": 60
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z32O12XQLNTSW2",
+                "EvaluateTargetHealth": false,
+                "DNSName": "dualstack.afe40abcf0e2911e7a7b006b081dbf0f-1322669856.someregion.elb.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "txgh.mycompany.is."
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "63.9.216.79"
+                }
+            ],
+            "Type": "A",
+            "Name": "us-west-1a.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "63.48.98.91"
+                }
+            ],
+            "Type": "A",
+            "Name": "vpn-dev.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "ResourceRecords": [
+                {
+                    "Value": "34.248.222.239"
+                }
+            ],
+            "Type": "A",
+            "Name": "vpn.mycompany.is.",
+            "TTL": 300
+        },
+        {
+            "AliasTarget": {
+                "HostedZoneId": "Z1BKCTXD74EZPE",
+                "EvaluateTargetHealth": false,
+                "DNSName": "s3-website-someregion.amazonaws.com."
+            },
+            "Type": "A",
+            "Name": "www.mycompany.is."
+        }
+    ]
+}

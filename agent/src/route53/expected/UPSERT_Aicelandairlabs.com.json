@@ -1,0 +1,108 @@
+{
+  "Comment": "toolchain - sync service deployments with route53.",
+  "Changes": [
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "unittest-business.mycompany.is.",
+        "Type": "A",
+        "AliasTarget": {
+          "HostedZoneId": "Z32O12XQLNTSW2",
+          "EvaluateTargetHealth": false,
+          "DNSName": "dualstack.ae371b07eb71911e6b8da06ac32a160f-1479703354.someregion.elb.amazonaws.com."
+        }
+      }
+    },
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "unittest-newweb.mycompany.is.",
+        "Type": "TXT",
+        "TTL": 60,
+        "ResourceRecords": [
+          {
+            "Value": "\"unittest_toolchain_managed\""
+          }
+        ]
+      }
+    },
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "unittest-newweb.mycompany.is.",
+        "Type": "A",
+        "AliasTarget": {
+          "HostedZoneId": "Z32O12XQLNTSW2",
+          "EvaluateTargetHealth": false,
+          "DNSName": "dualstack.ae411bef1b71911e6b8da06ac3newweb-1831801284.someregion.elb.amazonaws.com."
+        }
+      }
+    },
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "unittest-alpha.mycompany.is.",
+        "Type": "TXT",
+        "TTL": 60,
+        "ResourceRecords": [
+          {
+            "Value": "\"unittest_toolchain_managed\""
+          }
+        ]
+      }
+    },
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "ResourceRecords": [
+          {
+            "Value": "\"Some old existing TXT record value\""
+          },
+          {
+            "Value": "\"unittest_toolchain_managed\""
+          }
+        ],
+        "Type": "TXT",
+        "Name": "mycompany.is.",
+        "TTL": 60
+      }
+    },
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "mycompany.is.",
+        "Type": "A",
+        "AliasTarget": {
+          "HostedZoneId": "Z32O12XQLNTSW2",
+          "EvaluateTargetHealth": false,
+          "DNSName": "dualstack.ae411bef1b71911e6b8da06ac32a160f-1831801284.someregion.elb.amazonaws.com."
+        }
+      }
+    },
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "ResourceRecords": [
+          {
+            "Value": "\"some irrelevant value\""
+          }
+        ],
+        "Type": "TXT",
+        "Name": "unittest-business-old.mycompany.is.",
+        "TTL": 60
+      }
+    },
+    {
+      "Action": "DELETE",
+      "ResourceRecordSet": {
+        "AliasTarget": {
+          "HostedZoneId": "Z32O12XQLNTSW2",
+          "EvaluateTargetHealth": false,
+          "DNSName": "dualstack.a8a8bec520ef011e7bf0c06b32e87255-1960162450.someregion.elb.amazonaws.com."
+        },
+        "Type": "A",
+        "Name": "unittest-business-old.mycompany.is."
+      }
+    }
+  ]
+}

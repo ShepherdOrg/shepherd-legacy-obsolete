@@ -1,0 +1,29 @@
+version: '2'
+services:
+  shepherd-agent:
+    environment:
+      - 'SHEPHERD_PG_HOST=localhost'
+      - 'SHEPHERD_PG_PASSWORD=Helvetia_Makalu_sticks_assertive_untended_licensed'
+      - 'SHEPHERD_PG_PORT=5434'
+      - 'ENV=localtest'
+    image: 'icelandair/shepherd:latest'
+    command: npm run testmode
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ~/.docker:/root/.docker
+      - ../src/:/code/
+      - .:/testdata/
+      - /tmp:/tmp
+      - ./deployment-dirs:/deployments
+    network_mode: "host"
+  shepherd-postgres:
+    image: 'postgres'
+    environment:
+      - 'POSTGRES_PASSWORD=Helvetia_Makalu_sticks_assertive_untended_licensed'
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_PORT=5433'
+    ports:
+      - "5434:5432"
+  alpine:
+    image: 'alpine:3.4'
+    network_mode: "host"

@@ -1,0 +1,76 @@
+{
+    "LoadBalancerDescriptions": [
+        {
+            "Subnets": [
+                "subnet-835e09f5"
+            ], 
+            "CanonicalHostedZoneNameID": "Z32O12XQLNTSW2", 
+            "CanonicalHostedZoneName": "ae411bef1b71911e6b8da06ac3newweb-1831801284.someregion.elb.amazonaws.com",
+            "ListenerDescriptions": [
+                {
+                    "Listener": {
+                        "InstancePort": 30494, 
+                        "LoadBalancerPort": 80, 
+                        "Protocol": "TCP", 
+                        "InstanceProtocol": "TCP"
+                    }, 
+                    "PolicyNames": []
+                }, 
+                {
+                    "Listener": {
+                        "InstancePort": 32306, 
+                        "LoadBalancerPort": 443, 
+                        "Protocol": "TCP", 
+                        "InstanceProtocol": "TCP"
+                    }, 
+                    "PolicyNames": []
+                }
+            ], 
+            "HealthCheck": {
+                "HealthyThreshold": 2, 
+                "Interval": 10, 
+                "Target": "TCP:30494", 
+                "Timeout": 5, 
+                "UnhealthyThreshold": 6
+            }, 
+            "VPCId": "vpc-37e2a553", 
+            "BackendServerDescriptions": [], 
+            "Instances": [
+                {
+                    "InstanceId": "i-0bb3f686099c7edfe"
+                }, 
+                {
+                    "InstanceId": "i-061105a22e89d0390"
+                }, 
+                {
+                    "InstanceId": "i-092b042b8e8f08652"
+                }, 
+                {
+                    "InstanceId": "i-09fa8dab641b28be3"
+                }, 
+                {
+                    "InstanceId": "i-0fd3d279070a76a4b"
+                }
+            ], 
+            "DNSName": "ae411bef1b71911e6b8da06ac3newweb-1831801284.someregion.elb.amazonaws.com",
+            "SecurityGroups": [
+                "sg-65e06d03"
+            ], 
+            "Policies": {
+                "LBCookieStickinessPolicies": [], 
+                "AppCookieStickinessPolicies": [], 
+                "OtherPolicies": []
+            }, 
+            "LoadBalancerName": "ae411bef1b71911e6b8da06ac3newweb",
+            "CreatedTime": "2016-11-30T16:27:33.090Z", 
+            "AvailabilityZones": [
+                "somezone"
+            ], 
+            "Scheme": "internet-facing", 
+            "SourceSecurityGroup": {
+                "OwnerAlias": "508081720409", 
+                "GroupName": "k8s-elb-ae411bef1b71911e6b8da06ac3newweb"
+            }
+        }
+    ]
+}

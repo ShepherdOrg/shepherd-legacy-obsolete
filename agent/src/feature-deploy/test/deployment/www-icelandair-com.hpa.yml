@@ -1,0 +1,13 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: www-icelandair-com
+  namespace: default
+spec:
+  maxReplicas: 12
+  minReplicas: 2
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: www-icelandair-com
+  targetCPUUtilizationPercentage: 80

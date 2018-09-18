@@ -1,0 +1,45 @@
+.DeployerSetScrollContainer {
+    border: black solid 1px;
+    max-height: 40em;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.DeployerSetContainer{
+    border:black solid 1px;
+    padding:5px;
+    margin:15px;
+    width: 19em;
+}
+
+.deployment-name{
+    max-width: 12.5em;
+    min-width: 12.5em;
+    overflow:hidden;
+    text-align:right;
+}
+
+.deployment-version{
+    max-width: 4em;
+    overflow:hidden;
+    text-align:right;
+    color:darkblue;
+}
+
+.deployment-set-footer{
+    margin: 15px;
+}
+
+.deployment-set-footer button{
+    margin-top: 15px;
+}
+
+.deployment-set-links{
+    margin-top: 20px;
+    line-height: 1.5em;
+}
+
+.deployment-set-links a{
+    margin: 10px;
+}

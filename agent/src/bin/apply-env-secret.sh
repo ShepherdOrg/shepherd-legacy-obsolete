@@ -1,0 +1,1 @@
+../kubernetes/apply-env-secret.sh

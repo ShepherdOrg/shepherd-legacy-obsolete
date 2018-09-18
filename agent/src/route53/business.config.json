@@ -1,0 +1,17 @@
+{
+  "Comment": "Testing alias upsert",
+  "Changes": [
+    {
+      "Action": "${ACTION}",
+      "ResourceRecordSet": {
+        "Name": "${SERVICE_DNS_NAME}",
+        "Type": "A",
+        "AliasTarget": {
+          "HostedZoneId": "${ELBHOSTEDZONEID}",
+          "EvaluateTargetHealth": false,
+          "DNSName": "dualstack.${ELBHOST}"
+        }
+      }
+    }
+  ]
+}

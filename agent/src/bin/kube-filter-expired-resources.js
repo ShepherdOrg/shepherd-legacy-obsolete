@@ -1,0 +1,1 @@
+../kubernetes/kube-filter-expired-resources.js

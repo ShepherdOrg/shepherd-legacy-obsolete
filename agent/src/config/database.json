@@ -1,0 +1,15 @@
+{
+  "__description__":"Connection to postgres instance used to keep track of deployment status. On developer machines, we have a single instance, in CI/CD environment there is a dedicated instance for this.",
+  "dev": {
+    "driver": "pg",
+    "user": {"ENV": "DB_USER"},
+    "password": {"ENV": "DB_PASS"},
+    "host": {"ENV": "DB_HOST"},
+    "database": {"ENV": "POSTGRES_DATABASE"},
+    "schema": {"ENV": "DB_SCHEMA"},
+    "port": {"ENV": "DB_PORT"},
+    "max": 10,
+    "idleTimeoutMillis": 30000,
+    "ssl":{"ENV": "PG_SSL"}
+  }
+}

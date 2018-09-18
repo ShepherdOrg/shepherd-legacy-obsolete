@@ -1,0 +1,11 @@
+{
+  "spec_dir": "apitest",
+  "spec_files": [
+    "**/*[sS]pec.js"
+  ],
+  "helpers": [
+    "../server/jasmine-setup.js"
+  ],
+  "stopSpecOnExpectationFailure": true,
+  "random": false
+}

@@ -1,0 +1,4 @@
+.teststore/
+.build/
+build/
+src/npm-debug.log
