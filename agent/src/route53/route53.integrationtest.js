@@ -14,7 +14,7 @@ describe('route53 sync', function () {
         }
     });
 
-    fit('should generate expected sync from setup', function (done) {
+    it('should generate expected sync from setup', function (done) {
         script.execute('./test-sync-kubernetes-services-with-dns-names.js',
             [],
             {

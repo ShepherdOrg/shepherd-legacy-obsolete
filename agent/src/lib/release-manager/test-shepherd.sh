@@ -34,7 +34,7 @@ cd ${THISDIR}/.. && \
  DEBUG_LOG= \
  PERFORMANCE_LOG=false \
  MICROSERVICES_POSTGRES_RDS_HOST=postgres-local \
- MICRO_SITES_DB_PASSWORD=micro-sites-password \
+ MICRO_SITES_DB_PASSWORD=somedbpass \
  ENV=testit \
  shepherd.js "${THISDIR}/testdata/happypath/herd.yaml" ${TESTRUN_MODE} ${TESTOUTPUT_DIR}
 
