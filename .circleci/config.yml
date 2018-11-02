@@ -42,10 +42,6 @@ jobs:
         name: Build application Docker image
         command: |
           (cd agent && ./build-docker.sh)
-    - run:
-        name: Save Docker image layer cache
-        command: |
-          docker save -o /caches/layercache.tar app
     - save_cache:
         key: v1-{{ .Branch }}-{{ epoch }}
         paths:
