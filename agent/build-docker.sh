@@ -3,13 +3,20 @@ set -e
 
 PUSH=$1
 
+# This is the official version label for this project.
+MAJOR_MINOR=0.2
+
 if [ -z "${REPO_NAME}" ]; then
 	export REPO_NAME=icelandair/shepherd
 fi
 
-if [ -z "${SEMANTIC_VERSION}" ]; then
-	export SEMANTIC_VERSION=0.0-localbuild
+if [ -z "${CIRCLE_BUILD_NUM}" ]; then
+	export BUILD_NUMBER=localbuild
+else
+	export BUILD_NUMBER=${CIRCLE_BUILD_NUM}
 fi
+
+export SEMANTIC_VERSION=${MAJOR_MINOR}-${BUILD_NUMBER}
 
 if [ -z "${DOCKER_IMAGE}" ]; then
 	export DOCKER_IMAGE=${REPO_NAME}:${SEMANTIC_VERSION}
@@ -59,6 +66,6 @@ fi
 
 echo ${DOCKER_IMAGE}
 
-if [ ${PUSH} = "push" ]; then
+if [ "${PUSH}" = "push" ]; then
 	docker push ${REPO_NAME}
 fi
