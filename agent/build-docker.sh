@@ -60,5 +60,5 @@ fi
 echo ${DOCKER_IMAGE}
 
 if [ ${PUSH} = "push" ]; then
-	docker push ${DOCKER_IMAGE} ${REPO_NAME}
+	docker push ${REPO_NAME}
 fi
