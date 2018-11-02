@@ -1,6 +1,18 @@
 #!/bin/bash
 set -e
 
+if [ -z "${REPO_NAME}" ]; then
+	export REPO_NAME=icelandair/shepherd
+fi
+
+if [ -z "${SEMANTIC_VERSION}" ]; then
+	export SEMANTIC_VERSION=0.0-localbuild
+fi
+
+if [ -z "${DOCKER_IMAGE}" ]; then
+	export DOCKER_IMAGE=${REPO_NAME}:${SEMANTIC_VERSION}
+fi
+
 rm -rf ./.build
 mkdir ./.build
 mkdir ./.build/metadata
