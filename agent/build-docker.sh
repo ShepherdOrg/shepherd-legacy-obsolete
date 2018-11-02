@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-env
+PUSH=$1
 
 if [ -z "${REPO_NAME}" ]; then
 	export REPO_NAME=icelandair/shepherd
@@ -58,3 +58,7 @@ if [ -d "/caches/" ]; then
 fi
 
 echo ${DOCKER_IMAGE}
+
+if [ ${PUSH} = "push" ]; then
+	docker push ${DOCKER_IMAGE} ${REPO_NAME}
+fi

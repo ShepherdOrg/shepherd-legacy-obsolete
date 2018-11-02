@@ -41,8 +41,19 @@ jobs:
     - run:
         name: Build application Docker image
         command: |
-          (cd agent && ./build-docker.sh)
+          docker login -u $DOCKER_USER -p $DOCKER_PASSWD
+
+          if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            export PUSHARG=push
+          else
+            export PUSHARG=
+          fi
+          (cd agent && ./build-docker.sh ${PUSHARG})
     - save_cache:
         key: v1-{{ .Branch }}-{{ epoch }}
         paths:
         - /caches/layercache.tar
+    - run:
+        name: Push application Docker image
+        command: |
+
