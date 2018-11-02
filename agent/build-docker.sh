@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+env
+
 if [ -z "${REPO_NAME}" ]; then
 	export REPO_NAME=icelandair/shepherd
 fi
@@ -38,7 +40,10 @@ Last commits:
 ${LASTFIVECOMMITS}
 _EOF_
 
-docker build -t ${DOCKER_IMAGE} -t ${REPO_NAME}:latest \
+docker build \
+	-t ${DOCKER_IMAGE} \
+	-t ${REPO_NAME}:latest \
+	--cache-from ${REPO_NAME}:latest \
 	--build-arg SEMANTIC_VERSION=${SEMANTIC_VERSION} \
 	--build-arg LAST_COMMITS="$(echo ${LASTFIVECOMMITS} | base64)" \
 	--build-arg GIT_URL="${GIT_URL}" \
@@ -46,5 +51,10 @@ docker build -t ${DOCKER_IMAGE} -t ${REPO_NAME}:latest \
 	--build-arg BRANCH_NAME="${BRANCH_NAME}" \
 	--build-arg BUILD_DATE="${BUILD_DATE}" \
 	-f Dockerfile .
+
+
+if [ -d "/caches/" ]; then
+	docker save -o /caches/layercache.tar ${REPO_NAME}:latest
+fi
 
 echo ${DOCKER_IMAGE}

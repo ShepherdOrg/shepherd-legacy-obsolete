@@ -22,7 +22,7 @@ jobs:
         keys:
         - v1-{{ .Branch }}
         paths:
-        - /caches/app.tar
+        - /caches/layercache.tar
     - run:
         name: Install bash
         command: |
@@ -31,8 +31,9 @@ jobs:
     - run:
         name: Load Docker image layer cache
         command: |
+          mkdir -p /caches
           set +o pipefail
-          docker load -i /caches/app.tar | true
+          docker load -i /caches/layercache.tar | true
     - run:
         name: Get a feeling for this env
         command: |
@@ -44,9 +45,8 @@ jobs:
     - run:
         name: Save Docker image layer cache
         command: |
-          mkdir -p /caches
-          docker save -o /caches/app.tar app
+          docker save -o /caches/layercache.tar app
     - save_cache:
         key: v1-{{ .Branch }}-{{ epoch }}
         paths:
-        - /caches/app.tar
+        - /caches/layercache.tar
