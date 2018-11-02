@@ -31,7 +31,7 @@ jobs:
     - run:
         name: Get a feeling for this env
         command: |
-          pwd
+          (cd agent && ls -lart)
           ls -lR
     - run:
         name: Build application Docker image
