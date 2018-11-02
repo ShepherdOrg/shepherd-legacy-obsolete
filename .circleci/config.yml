@@ -29,6 +29,11 @@ jobs:
           set +o pipefail
           docker load -i /caches/app.tar | true
     - run:
+        name: Get a feeling for this env
+        command: |
+          pwd
+          ls -lR
+    - run:
         name: Build application Docker image
         command: |
           ./build-docker.sh
