@@ -35,6 +35,9 @@ module.exports = function (injected) {
 
     function loadImageMetadata (imageDef, retryCount) {
         return new Promise(function (resolve, reject) {
+            // TODO: Extract to a separate file, support loading by getting manifest data from registry, with fallback to pulling and inspecting.
+
+
             let dockerImage = imageDef.dockerImage || imageDef.image + ':' + imageDef.imagetag;
             logger.debug('Extracting labels from image ' + dockerImage);
             cmd.exec('docker', [

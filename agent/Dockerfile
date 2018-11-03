@@ -105,8 +105,10 @@ LABEL is.icelandairlabs.lastcommits=${LAST_COMMITS}
 ARG BUILD_DATE
 LABEL is.icelandairlabs.builddate=${BUILD_DATE}
 
-ARG MIGRATIONS_DOCKERIMAGE
-LABEL is.icelandairlabs.dbmigration=${MIGRATIONS_DOCKERIMAGE}
+# Has no migrations docker
+#ARG MIGRATIONS_DOCKERIMAGE
+#LABEL is.icelandairlabs.dbmigration=${MIGRATIONS_DOCKERIMAGE}
 
-ARG KUBECONFIG_B64
-LABEL is.icelandairlabs.kube.config.tar.base64=${KUBECONFIG_B64}
+# Agent is not kubernetes deployable
+#ARG KUBECONFIG_B64
+#LABEL is.icelandairlabs.kube.config.tar.base64=${KUBECONFIG_B64}

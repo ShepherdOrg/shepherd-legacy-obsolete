@@ -1,7 +1,7 @@
 const HerdLoader = require('./herd-loader');
 const inject = require('../inject/inject');
 const pad = require('../padleft');
-const exec = require('../exec');
+const exec = require('exec');
 const fakeLogger = require('../test-tools/fake-logger');
 
 describe('herd.yaml loading', function () {

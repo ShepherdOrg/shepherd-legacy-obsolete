@@ -16,7 +16,8 @@
     "tar": "^4.2.0",
     "timer-stopwatch": "^0.2.0",
     "tmp": "0.0.33",
-    "winston": "^3.0.0-rc1"
+    "winston": "^3.0.0-rc1",
+    "exec": "./packages/exec"
   },
   "devDependencies": {
     "chai": "4.1.2",

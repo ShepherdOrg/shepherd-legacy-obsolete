@@ -6,7 +6,7 @@ const fs = require('fs');
 const expect = require('expect.js');
 const _ = require('lodash');
 
-const exec = require('../exec');
+const exec = require('exec');
 
 function containsDifference(diffArray) {
     for (let diffObj of diffArray) {
