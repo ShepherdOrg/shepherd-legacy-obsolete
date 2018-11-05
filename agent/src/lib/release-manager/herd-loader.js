@@ -8,6 +8,14 @@ const calculateImagePlan = require('./image-loader')(inject({
     kubeSupportedExtensions
 }));
 
+const labelsLoader = require('docker-image-metadata-loader')
+
+function splitDockerImageTag (imgObj) {
+  let colonIdx = imgObj.dockerImage.indexOf(":");
+  imgObj.image = imgObj.dockerImage.slice(0, colonIdx);
+  imgObj.imagetag = imgObj.dockerImage.slice(colonIdx + 1, imgObj.dockerImage.length);
+}
+
 module.exports = function (injected) {
 
     const ReleasePlan = injected('ReleasePlan');
@@ -24,6 +32,11 @@ module.exports = function (injected) {
 
     const cmd = injected('exec');
 
+  const dockerRegistries = labelsLoader.getDockerRegistryClientsFromConfig()
+  const loader = labelsLoader.imageLabelsLoader(inject({'dockerRegistries':dockerRegistries, logger: logger}))
+
+
+
     const calculateInfrastructurePlan = require('./infrastructure-loader')(inject({
         logger,
         exec: cmd
@@ -33,58 +46,8 @@ module.exports = function (injected) {
         return scanDir(path.resolve(imagesPath + '/' + herdFolder.path));
     }
 
-    function loadImageMetadata (imageDef, retryCount) {
-        return new Promise(function (resolve, reject) {
-            // TODO: Extract to a separate file, support loading by getting manifest data from registry, with fallback to pulling and inspecting.
-
-
-            let dockerImage = imageDef.dockerImage || imageDef.image + ':' + imageDef.imagetag;
-            logger.debug('Extracting labels from image ' + dockerImage);
-            cmd.exec('docker', [
-                'inspect', dockerImage
-            ], process.env, function (err) {
-                logger.debug('docker inspect error:', err);
-                if (err.indexOf('No such') >= 0) {
-                    if (retryCount > 1) {
-                        reject('ERROR:' + dockerImage + ': ' + err);
-                    }
-                    logger.debug('Going to pull ', JSON.stringify(imageDef));
-
-                    cmd.exec('docker', ['pull', dockerImage], process.env, function (err) {
-                            reject('Error pulling ' + dockerImage + '\n' + err);
-                        },
-                        function (/*stdout*/) {
-                            logger.info(dockerImage + ' pulled, retrying inspect to load metadata');
-                            loadImageMetadata(imageDef, 2).then(function (result) {
-                                resolve(result);
-                            }).catch(function (e) {
-                                reject(e);
-                            });
-                        });
-                } else {
-                    reject('Error inspecting ' + dockerImage + ':\n' + err);
-                }
-            }, function (stdout) {
-                try {
-
-                    let dockerMetadata = JSON.parse(stdout);
-                    let ContainerConfig = dockerMetadata[0].ContainerConfig;
-                    let Labels = ContainerConfig.Labels;
-
-                    let imageMetadata = {
-                        imageDefinition: imageDef,
-                        dockerLabels: Labels
-                    };
-                    if (Labels) {
-                        logger.debug(dockerImage + ' has image metadata with the following Labels', Object.keys(Labels).join(', '));
-                    }
-                    resolve(imageMetadata);
-                } catch (e) {
-                    reject('Error processing metadata retrieved from docker inspect of image ' + dockerImage + ':\n' + e + '\nMetadata document:\n' + stdout);
-                }
-            });
-
-        });
+    function loadImageMetadata (imageDef) {
+      return loader.getImageLabels(imageDef)
     }
 
     return {
@@ -165,6 +128,9 @@ module.exports = function (injected) {
                                         imgObj.herdName = imgName;
                                         logger.debug('Deployment image - loading image meta data for docker image', JSON.stringify(imgObj));
 
+                                        if(!imgObj.image && imgObj.dockerImage){
+                                          splitDockerImageTag(imgObj);
+                                        }
                                         return loadImageMetadata(imgObj)
                                             .then(addDependencies)
                                             .then(calculateImagePlan)

@@ -17,7 +17,8 @@
     "timer-stopwatch": "^0.2.0",
     "tmp": "0.0.33",
     "winston": "^3.0.0-rc1",
-    "exec": "./packages/exec"
+    "exec": "./packages/exec",
+    "docker-image-metadata-loader": "./packages/docker-image-metadata-loader"
   },
   "devDependencies": {
     "chai": "4.1.2",
@@ -30,6 +31,7 @@
     "stream-buffers": "^3.0.1"
   },
   "scripts": {
+    "build-packages":"./packages/build-package.sh nano-inject && ./packages/build-package.sh exec && ./packages/build-package.sh docker-image-metadata-loader",
     "specs": "export PATH=./bin:${PATH} && export NODE_PATH=/ && /node_modules/.bin/jasmine JASMINE_CONFIG_PATH=./jasmine.json",
     "tdd": "export PATH=./bin:${PATH} && export NODE_PATH=/ && /node_modules/.bin/nodemon -L /node_modules/.bin/jasmine JASMINE_CONFIG_PATH=./jasmine.json",
     "integrationtests": "export PATH=./bin:${PATH} && export NODE_PATH=/ && /node_modules/.bin/jasmine JASMINE_CONFIG_PATH=./jasmine-integrationtests.json",

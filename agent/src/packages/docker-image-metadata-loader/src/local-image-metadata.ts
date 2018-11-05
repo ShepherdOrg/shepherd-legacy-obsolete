@@ -1,7 +1,14 @@
-import { TDockerImageLabels } from "./registry-metadata-api";
+import { TDockerImageLabels } from "./registry-metadata-client";
 
 export interface TDockerInspectMetadata {
-  dockerLabels: TDockerImageLabels;
+  dockerLabels: TDockerImageLabels
+  imageDefinition: TDockerImageReference
+}
+
+export type TDockerImageReference={
+  dockerImage?: string
+  image: string
+  imagetag: string
 }
 
 export function dockerImageMetadata(injected: any) {
@@ -10,9 +17,8 @@ export function dockerImageMetadata(injected: any) {
 
   const cmd = injected("exec");
 
-  function pullAndInspectImage(imageDef, retryCount: number = 0): Promise<TDockerInspectMetadata> {
+  function pullAndInspectImage(imageDef:TDockerImageReference, retryCount: number = 0): Promise<TDockerInspectMetadata> {
     return new Promise(function(resolve, reject) {
-      // TODO: Extract to a separate file, support loading by getting manifest data from registry, with fallback to pulling and inspecting.
       let dockerImage = imageDef.dockerImage || imageDef.image + ":" + imageDef.imagetag;
       logger.debug("Extracting labels from image " + dockerImage);
       cmd.extendedExec("docker", [

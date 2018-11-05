@@ -19,13 +19,12 @@
     "url": ""
   },
   "scripts": {
-    "build": "tsc",
+    "build": "npm run clean && tsc",
     "clean": "rm -rf dist",
     "ci-task": "npm run clean && npm run test && npm run test && npm run build && npm run format-verify",
-    "prepublish": "npm run clean && npm run ci-task",
     "contract-test": "SERVICE_SUFFIX=.dev.it.tm.is mocha -R dot --exit --require ts-node/register --recursive './src/**/*.contract-spec.ts'",
     "contract-tdd": "SERVICE_SUFFIX=.dev.it.tm.is mocha --exit --require ts-node/register --recursive  --watch-extensions ts,js --watch  './src/**/*.contract-spec.ts'",
-    "test": "mocha --exit --require ts-node/register --recursive ./**/*.spec.ts",
+    "test-disabled": "mocha --exit --require ts-node/register --recursive ./**/*.spec.ts",
     "tdd": "mocha -R dot --require ts-node/register --recursive --watch-extensions ts,js --watch ./**/*.spec.ts",
     "prepush": "npm run ci",
     "format": "prettier --ignore-path ../../.prettierignore --write 'lib/**/*.{ts,js}'",
@@ -33,18 +32,19 @@
     "run-local-registry": "docker run -d -p 5000:5000 --restart always --name registry registry:2"
   },
   "dependencies": {
-    "exec":"../exec",
-    "nano-inject":"../nano-inject",
-    "superagent": "^4.0.0-beta.5"
+    "exec": "../exec",
+    "nano-inject": "../nano-inject",
+    "superagent": "^4.0.0-beta.5",
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/lodash": "^4.14.117",
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.11.4",
-    "@types/chai": "^4.1.7",
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
     "mocha-typescript": "^1.1.17",
-
     "prettier": "^1.14.2",
     "ts-node": "^7.0.1",
     "typescript": "^3.1.1"

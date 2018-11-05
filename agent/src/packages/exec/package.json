@@ -2,7 +2,8 @@
   "name": "exec",
   "version": "1.0.0",
   "main": "index.js",
-  "dependencies": {
-    
+  "dependencies": {},
+  "scripts": {
+    "build": "echo Nothing to build in pure JS module"
   }
 }

@@ -1,21 +1,15 @@
-import { dockerImageMetadata, TDockerInspectMetadata } from "./image-metadata";
+import { dockerImageMetadata, TDockerInspectMetadata } from "./local-image-metadata";
 import { inject } from "nano-inject";
 import { expect } from "chai";
-import { TDockerImageLabels } from "./registry-metadata-api";
+import { TDockerImageLabels } from "./registry-metadata-client";
+import { getTestCaseLogger } from "./testcase-logger";
 
 const exec = require("exec");
 
 describe("Image metadata loading", function(){
   this.timeout(60000);
 
-  let testCaseLogger = {
-    debug:(_msg:string)=>{
-      // console.log("DEBUG " + _msg);
-    },
-    info:(_msg:string)=>{
-      // console.log("INFO", _msg);
-    }
-  };
+  let testCaseLogger = getTestCaseLogger({debugOutput:false, infoOutput:false});
 
   const imageMetadataLoader = dockerImageMetadata(inject({exec:exec, logger: testCaseLogger}));
 

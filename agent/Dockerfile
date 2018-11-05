@@ -1,8 +1,8 @@
-FROM alpine:3.4
+FROM alpine:3.8
 
 RUN apk --no-cache update && \
     apk --no-cache add python py-pip py-setuptools ca-certificates groff less && \
-    apk --no-cache add --update nodejs=6.7.0-r1 && \
+    apk --no-cache add --update nodejs npm && \
     pip --no-cache-dir install awscli && \
     rm -rf /var/cache/apk/*
 
@@ -68,14 +68,13 @@ RUN set -ex; \
 
 WORKDIR /code
 
-COPY ./src/package.json ./package.json
+COPY ./src/ .
 
-RUN npm install --loglevel=warn
+RUN npm run build-packages && npm install --loglevel=warn
 
 # Trick to make node_modules accessible when source directory is linked during testing.
 RUN mv /code/node_modules /node_modules
 
-COPY ./src/ .
 COPY ./.build/metadata/ ./metadata/
 
 

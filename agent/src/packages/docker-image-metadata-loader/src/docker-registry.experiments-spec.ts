@@ -121,7 +121,7 @@ xdescribe("Docker registry API - get manifest - basicauth", function() {
 
 });
 
-describe.only("Get docker info from local registry using superagent", function() {
+describe("Get docker info from local registry using superagent", function() {
 
   const PROTOCOL = `http`;
   let REGISTRY_HOST = "localhost:5000";
@@ -170,7 +170,7 @@ describe.only("Get docker info from local registry using superagent", function()
     process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
   });
 
-  it.only("Should list all shepherd labelled images", () => {
+  it("Should list all shepherd labelled images", () => {
     let ApiUrl = `${PROTOCOL}://${REGISTRY_HOST}/v2/_catalog/?n=10000`;
     console.log('Query catalog', ApiUrl)
     return agent.get(ApiUrl).then((result) => {
@@ -183,7 +183,7 @@ describe.only("Get docker info from local registry using superagent", function()
       // @ts-ignore
       return Promise.all(imageTagPromises);
     }).then((imagesWithTags) => {
-      const imageManifestPromises = imagesWithTags.map((imageWithTag) => {
+      const imageManifestPromises = imagesWithTags.map((imageWithTag:any) => {
         console.log("Getting manifest for ", imageWithTag.name, imageWithTag.tags[0]);
         return getImageManifest(imageWithTag.name, imageWithTag.tags[0]);
       });

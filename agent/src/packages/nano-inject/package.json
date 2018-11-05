@@ -19,24 +19,18 @@
     "url": ""
   },
   "scripts": {
-    "build": "tsc",
+    "build": "npm run clean && tsc",
     "clean": "rm -rf dist",
-    "ci": "npm run clean && npm run test && npm run e2etest-docker && npm run build && npm run format-verify",
-    "prepublish": "npm run clean && npm run ci",
+    "ci": "npm run clean && npm run test && npm run build && npm run format-verify",
     "e2etest": "mocha --exit --require ts-node/register --recursive ./**/*.e2e.ts",
     "e2etdd": "mocha --exit -R dot --require ts-node/register --recursive --watch-extensions ts,js --watch ./**/*.e2e.ts",
     "test": "mocha --exit --require ts-node/register --recursive ./**/*.spec.ts",
     "tdd": "mocha -R dot --require ts-node/register --recursive --watch-extensions ts,js --watch ./**/*.spec.ts",
     "prepush": "npm run ci",
     "format": "prettier --ignore-path ../../.prettierignore --write 'lib/**/*.{ts,js}'",
-    "format-verify": "prettier  --ignore-path ../../.prettierignore -l 'lib/**/*.{ts,js}'",
-    "e2einstall": "docker exec -it ts-redis-client_e2econtainer_1 ls -lart",
-    "e2etdd-docker": "docker-compose up -d && docker exec -it ts-redis-client_e2econtainer_1 npm run e2etdd || docker-compose down",
-    "e2etest-docker": "npm run build-testcontainer && docker-compose up -d && docker exec -it ts-redis-client_e2econtainer_1 npm run e2etest && docker-compose down",
-    "build-testcontainer": "cp *.json ./testcontainer/ && cp ~/.npmrc ./testcontainer/ && docker build -t redisclient-testcontainer testcontainer"
+    "format-verify": "prettier  --ignore-path ../../.prettierignore -l 'lib/**/*.{ts,js}'"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.11.4",
