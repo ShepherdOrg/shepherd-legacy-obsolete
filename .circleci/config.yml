@@ -35,15 +35,13 @@ jobs:
           set +o pipefail
           docker load -i /caches/layercache.tar | true
     - run:
-        name: Get a feeling for this env
-        command: |
-          (cd ./agent && ls -lart)
-    - run:
         name: Build packages and application Docker image
         command: |
+          set +o pipefail
+
           docker login -u $DOCKER_USER -p $DOCKER_PASSWD
 
-          (cd packages && npm run build)
+          (cd packages && docker build . -t shepherd-packages)
 
           if [ "${CIRCLE_BRANCH}" == "master" ]; then
             export PUSHARG=push
