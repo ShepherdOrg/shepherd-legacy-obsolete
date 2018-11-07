@@ -68,12 +68,16 @@ RUN set -ex; \
 
 WORKDIR /code
 
+COPY --from=shepherd-packages /packages/ /packages/
+
 COPY ./src/ .
 
-RUN npm run build-packages && npm install --loglevel=warn
+RUN npm install --loglevel=warn
 
 # Trick to make node_modules accessible when source directory is linked during testing.
 RUN mv /code/node_modules /node_modules
+
+ENV PATH "$PATH:/node_modules/.bin"
 
 COPY ./.build/metadata/ ./metadata/
 

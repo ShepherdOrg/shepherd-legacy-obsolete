@@ -1,0 +1,21 @@
+{
+  "name": "shepherd-npm-packages",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/lodash": "^4.14.117",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.11.4",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "mocha-typescript": "^1.1.17",
+    "prettier": "^1.14.2",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.1"
+  },
+  "scripts": {
+    "build":"docker build -t shepherd-packages .",
+    "build-packages": "./build-package.sh nano-inject && ./build-package.sh exec && ./build-package.sh docker-image-metadata-loader"
+  }
+}

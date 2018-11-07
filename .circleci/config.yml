@@ -39,9 +39,11 @@ jobs:
         command: |
           (cd ./agent && ls -lart)
     - run:
-        name: Build application Docker image
+        name: Build packages and application Docker image
         command: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWD
+
+          (cd packages && npm run build)
 
           if [ "${CIRCLE_BRANCH}" == "master" ]; then
             export PUSHARG=push
