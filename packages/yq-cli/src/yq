@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+"use strict";
+
+const JSYAML = require("js-yaml");
+const path = require("path");
+const spawn = require("child_process").execFile;
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+  terminal: false
+});
+
+let stdinbuf = "";
+
+rl.on("line", function(line) {
+  stdinbuf += line + "\n";
+});
+
+rl.on("close", function() {
+  let parsed = JSYAML.safeLoad(stdinbuf);
+  const jqCommand = "jq";
+  let child = spawn(jqCommand, process.argv.slice(2), function(error, stdout, stderr) {
+    if (error) {
+      console.error(`Error executing ${jqCommand}!\n`, error);
+      process.exit(-1);
+    }
+  });
+  child.stdin.setEncoding = "utf-8";
+  child.stdout.pipe(process.stdout);
+  child.stderr.pipe(process.stderr);
+  child.stdin.write(JSON.stringify(parsed) + "\n");
+  child.stdin.end();
+});

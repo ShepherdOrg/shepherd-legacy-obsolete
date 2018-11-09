@@ -1,0 +1,21 @@
+{
+  "name": "yq-cli",
+  "description": "YAML Query. Wrapper for jq, that works on yaml. Supports stdin only. Requires jq to be installed and available on path",
+  "version": "1.0.0",
+  "main": "src/yq",
+  "readme": "readme.md",
+  "bin": {
+    "yq": "src/yq"
+  },
+  "dependencies": {
+    "js-yaml": "3.10.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "chai": "^4.2.0"
+  },
+  "scripts": {
+    "build": "npm run test",
+    "test": "mocha src/yq.spec.js"
+  }
+}

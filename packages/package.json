@@ -16,6 +16,6 @@
   },
   "scripts": {
     "build":"docker build -t shepherd-packages .",
-    "build-packages": "./build-package.sh nano-inject && ./build-package.sh exec && ./build-package.sh docker-image-metadata-loader"
+    "build-packages": "./build-package.sh yq-cli && ./build-package.sh nano-inject && ./build-package.sh exec && ./build-package.sh docker-image-metadata-loader"
   }
 }

@@ -17,7 +17,9 @@
     "tmp": "0.0.33",
     "winston": "^3.0.0-rc1",
     "exec": "/packages/exec",
-    "docker-image-metadata-loader": "/packages/docker-image-metadata-loader"
+    "docker-image-metadata-loader": "/packages/docker-image-metadata-loader",
+    "yq-cli": "/packages/yq-cli",
+    "node-jq": "1.3.1"
   },
   "devDependencies": {
     "chai": "4.1.2",
