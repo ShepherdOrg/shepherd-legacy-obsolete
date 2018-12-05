@@ -74,6 +74,7 @@ RUN npm run build-packages && npm install --loglevel=warn
 
 # Trick to make node_modules accessible when source directory is linked during testing.
 RUN mv /code/node_modules /node_modules
+RUN mv /code/packages /packages
 
 COPY ./.build/metadata/ ./metadata/
 
