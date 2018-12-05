@@ -31,11 +31,11 @@
     "stream-buffers": "^3.0.1"
   },
   "scripts": {
-    "build-packages":"./packages/build-package.sh nano-inject && ./packages/build-package.sh exec && ./packages/build-package.sh docker-image-metadata-loader",
-    "specs": "export PATH=./bin:${PATH} && export NODE_PATH=/ && /node_modules/.bin/jasmine JASMINE_CONFIG_PATH=./jasmine.json",
-    "tdd": "export PATH=./bin:${PATH} && export NODE_PATH=/ && /node_modules/.bin/nodemon -L /node_modules/.bin/jasmine JASMINE_CONFIG_PATH=./jasmine.json",
-    "integrationtests": "export PATH=./bin:${PATH} && export NODE_PATH=/ && /node_modules/.bin/jasmine JASMINE_CONFIG_PATH=./jasmine-integrationtests.json",
-    "watch-integrationtests": "export PATH=./bin:${PATH} && export NODE_PATH=/ && /node_modules/.bin/nodemon /node_modules/.bin/jasmine JASMINE_CONFIG_PATH=./jasmine-integrationtests.json",
+    "build-packages": "./packages/build-package.sh nano-inject && ./packages/build-package.sh exec && ./packages/build-package.sh docker-image-metadata-loader && echo Packages built",
+    "specs": "export PATH=./node_modules/.bin/:./bin:${PATH} && export && jasmine JASMINE_CONFIG_PATH=./jasmine.json",
+    "tdd": "export PATH=./node_modules/.bin/:./bin:${PATH} &&  nodemon -L ./node_modules/.bin/jasmine JASMINE_CONFIG_PATH=./jasmine.json",
+    "integrationtests": "export PATH=./node_modules/.bin/:./bin:${PATH} &&  jasmine JASMINE_CONFIG_PATH=./jasmine-integrationtests.json",
+    "watch-integrationtests": "export PATH=./node_modules/.bin/:./bin:${PATH} &&  nodemon ./node_modules/.bin/jasmine JASMINE_CONFIG_PATH=./jasmine-integrationtests.json",
     "postgres": "docker run --name postgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres",
     "testmode": "sleep 5d"
   }
