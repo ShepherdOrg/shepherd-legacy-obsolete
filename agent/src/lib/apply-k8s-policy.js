@@ -116,13 +116,15 @@ function applyPoliciesToDoc(rawDoc) {
 
         let outfiles = "";
         for (let filec of files) {
-            let parsedDoc = JSYAML.safeLoad(filec);
-            modified = modified || applyPolicies(parsedDoc);
-            let yml = JSYAML.safeDump(parsedDoc);
-            if (outfiles.length > 0) {
+            if(filec && filec.trim()){
+              let parsedDoc = JSYAML.safeLoad(filec);
+              modified = modified || applyPolicies(parsedDoc);
+              let yml = JSYAML.safeDump(parsedDoc);
+              if (outfiles.length > 0) {
                 outfiles += "\n---\n"
+              }
+              outfiles += yml.trim()
             }
-            outfiles += yml.trim()
         }
         if(modified){
             return outfiles;
