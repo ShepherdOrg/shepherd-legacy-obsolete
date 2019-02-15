@@ -1,11 +1,10 @@
 {
   "name": "nano-inject",
   "version": "1.0.0",
-  "description": "Smallest dependency injection framework imaginable",
+  "description": "Minimalistic dependency injection",
   "keywords": [
-    "redis",
-    "cache",
-    "promise"
+    "dependency injection",
+    "typescript"
   ],
   "author": "Guðlaugur S. Egilsson <gulli@kolibri.is>",
   "homepage": "",

@@ -31,7 +31,7 @@
     "stream-buffers": "^3.0.1"
   },
   "scripts": {
-    "build-packages": "./packages/build-package.sh nano-inject && ./packages/build-package.sh exec && ./packages/build-package.sh docker-image-metadata-loader && echo Packages built",
+    "build-packages": "./packages/build-package.sh exec && ./packages/build-package.sh docker-image-metadata-loader && echo Packages built",
     "specs": "export PATH=./node_modules/.bin/:./bin:${PATH} && export && jasmine JASMINE_CONFIG_PATH=./jasmine.json",
     "tdd": "export PATH=./node_modules/.bin/:./bin:${PATH} &&  nodemon -L ./node_modules/.bin/jasmine JASMINE_CONFIG_PATH=./jasmine.json",
     "integrationtests": "export PATH=./node_modules/.bin/:./bin:${PATH} &&  jasmine JASMINE_CONFIG_PATH=./jasmine-integrationtests.json",

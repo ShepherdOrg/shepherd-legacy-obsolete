@@ -56,10 +56,11 @@ names of companies, and so on.
 
 # Todo
 
+1. Support synchronous deployment of service. Means blocking until all pods are updated and reported as Running.
+1. Support rollback to last version. See ideas below.
 1. Code cleanup...remove script leftovers from toolchain. Code reorg?
 1. Increase flexibility regarding location of /deployments/central/images.yaml. 
 1. Support hierarchical folder/herd structure, with each dir adding env variables to those defined higher up.
-1. Support rollback to last version. See ideas below.
 1. Command line tools - installer - inspection of image metadata
 1. Feature deployment using namespaces/external names.
 1. Layered configuration to better support multiple deployment sets.
