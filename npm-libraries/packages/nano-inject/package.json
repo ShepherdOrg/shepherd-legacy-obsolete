@@ -1,6 +1,6 @@
 {
   "name": "@shepherdorg/nano-inject",
-  "version": "1.0.0-rc.3",
+  "version": "null-alpha.32+bc5fcea",
   "description": "Minimalistic dependency injection library.",
   "keywords": [
     "dependency injection",
@@ -29,7 +29,6 @@
     "format": "prettier --ignore-path ../../.prettierignore --write 'lib/**/*.{ts,js}'",
     "format-verify": "prettier  --ignore-path ../../.prettierignore -l 'lib/**/*.{ts,js}'"
   },
-  "dependencies": {},
   "devDependencies": {
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.11.4",
@@ -39,5 +38,6 @@
     "prettier": "^1.14.2",
     "ts-node": "^7.0.1",
     "typescript": "^3.1.1"
-  }
+  },
+  "gitHead": "bc5fcea086204f2976042dc0ea7b1ce2f3d68e84"
 }
