@@ -1,5 +1,5 @@
 {
-  "name": "nano-inject",
+  "name": "@shepherdorg/nano-inject",
   "version": "1.0.0",
   "description": "Minimalistic dependency injection",
   "keywords": [
