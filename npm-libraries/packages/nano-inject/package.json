@@ -1,7 +1,7 @@
 {
   "name": "@shepherdorg/nano-inject",
   "version": "0.0.1",
-  "description": "Minimalistic dependency injection library..",
+  "description": "Minimalistic dependency injection library...",
   "keywords": [
     "dependency injection",
     "typescript"
