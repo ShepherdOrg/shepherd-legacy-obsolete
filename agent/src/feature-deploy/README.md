@@ -22,10 +22,6 @@ Specifically, it does not support the following:
 * Adds time-to-live-hours label (ttl-hours) to all deployment documents. This is processed
 by delete-expired-resources.sh, which is initiated after each update of the environment.
 
-* Adjust domain name labels, which are processed by Route53 sync logic. Removes any top-level domain
-labels, and changes the subdomain label so that the feature name will be used in the subdomain name,
-with or without environment prefix.
-
 * Changes replica specification of Deployment type docs to 1.
 
 * Adjusts configmap names, volumes, and references from deployments to maintain internal consistency.

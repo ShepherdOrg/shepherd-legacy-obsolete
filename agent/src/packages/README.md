@@ -1,2 +1,6 @@
-Move utility stuff from lib into small publishable packages in this directory.
-May move to separate projects later.
+# Nano inject
+
+A totally uncessary minimalistic dependency injection framework. 
+
+The only thing it really does it to make dependency injection explicit.
+

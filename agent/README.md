@@ -237,18 +237,6 @@ will be applied again if the version or configuration changes. Same goes for dep
 be run again if version or environment parameters change.
 
 
-# Route53 kubernetes sync
-
-Shepherd comes with route53 sync which is run after every deployment if enabled. To enable, set
-the env variable 
-
-```ROUTE53_SYNC_ENABLED=true```
-
-If not enabled, route53 sync will be run in dry-run mode, showing what changes it would do if it
-were enabled.
-
-[More on route53 sync](src/route53/README.md)
-
 # Kubeconfig
 
 Two methods are supported for providing kubeconfig to Shepherd.

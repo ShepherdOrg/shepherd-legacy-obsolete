@@ -29,17 +29,6 @@ function releaseherd(){
 
 export -f releaseherd
 
-function update-route53(){
-	if [ "${ROUTE53_SYNC_ENABLED}" = "true" ]; then
-		echo "Update DNS entries for kubernetes cluster in route53."
-		if [ -z "${TOP_DOMAIN_NAME}" ]; then
-			echo "TOP_DOMAIN_NAME must be set for route53 sync to function"
-			exit 255
-		fi
-		cd ${THISDIR}/../route53 && ENV=${ENV} TOP_DOMAIN_NAME=${TOP_DOMAIN_NAME} ROUTE53_SYNC_ENABLED=true ./sync-services-with-domain-names.sh
-	fi
-}
-
 if [[ $2 = "reset" ]]; then
    echo "Not performing deployment when ${2}"
 else
@@ -60,11 +49,4 @@ else
 	echo "Done deploying images"
 
 	# todo Then from deployment folder
-
-	if [ -z "${TESTRUN_MODE}" ]; then
-		update-route53
-	else
-		echo "TESTRUN_MODE ${TESTRUN_MODE}, skipping route53 update"
-	fi
-
 fi

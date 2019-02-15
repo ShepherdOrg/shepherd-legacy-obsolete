@@ -17,7 +17,7 @@ describe('inject dependency injection', function(){
             });
             deps("baz");
         }  catch (e){
-            expect(e.message).to.equal('Required dependency <baz> is not provided.');
+            expect(e.message).to.eql('Required dependency <baz> is not provided.');
         }
     });
 

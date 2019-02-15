@@ -69,7 +69,6 @@ names of companies, and so on.
 1. Configurable storage backend for images.yaml? Currently assuming CI/CD tool + version control
 for access control, and running deployments, which requires a bit of setup and may not be intuitive for everyone.
 To lower adoption threshold, may make sense to have a (API) server that supports this.
-1. Extract route53 sync project and make separate.
 1. Support confirmation in deployment tools that have that concept, like Terraform.
 
 ## Rollback support
@@ -92,4 +91,4 @@ This software is released under the GNU - General Public License
 
 ## Copyright
 - Copyright Icelandair 2017-2018
-- Copyright Kolibri 2018
+- Copyright Kolibri 2018-2019

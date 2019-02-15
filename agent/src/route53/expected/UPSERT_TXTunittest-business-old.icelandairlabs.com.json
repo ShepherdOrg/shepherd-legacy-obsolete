@@ -1,1 +1,0 @@
-{"Comment":"Kubernetes service gone - remove toolchain marker value.","Changes":[{"Action":"UPSERT","ResourceRecordSet":{"ResourceRecords":[{"Value":"\"some irrelevant value\""}],"Type":"TXT","Name":"unittest-business-old.mycompany.is.","TTL":60}}]}

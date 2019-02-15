@@ -1,1 +1,0 @@
-{"Comment":"Kubernetes service gone - DELETE DNS record.","Changes":[{"Action":"DELETE","ResourceRecordSet":{"AliasTarget":{"HostedZoneId":"Z32O12XQLNTSW2","EvaluateTargetHealth":false,"DNSName":"dualstack.a8a8bec520ef011e7bf0c06b32e87255-1960162450.someregion.elb.amazonaws.com."},"Type":"A","Name":"unittest-business-old.mycompany.is."}}]}
