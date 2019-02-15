@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ShepherdOrg/shepherd#readme",
   "devDependencies": {
+    "lerna": "^3.13.0",
     "oao": "^1.5.1"
   }
 }
