@@ -1,9 +1,0 @@
-{
-  "name": "exec",
-  "version": "1.0.0",
-  "main": "index.js",
-  "dependencies": {},
-  "scripts": {
-    "build": "echo Nothing to build in pure JS module"
-  }
-}
