@@ -23,6 +23,11 @@ jobs:
         - v1-{{ .Branch }}
         paths:
         - /caches/layercache.tar
+    - restore_cache:
+        keys:
+          - yarn-{{ .Branch }}
+        paths:
+          - ~/.cache/yarn
     - run:
         name: Install bash
         command: |
@@ -34,10 +39,6 @@ jobs:
           mkdir -p /caches
           set +o pipefail
           docker load -i /caches/layercache.tar | true
-    - run:
-        name: Get a feeling for this env
-        command: |
-          (cd ./agent && ls -lart)
     - run:
         name: Build application Docker image
         command: |
@@ -53,3 +54,7 @@ jobs:
         key: v1-{{ .Branch }}-{{ epoch }}
         paths:
         - /caches/layercache.tar
+    - save_cache:
+        key: yarn-{{ .Branch }}-{{ epoch }}
+        paths:
+        - ~/.cache/yarn

@@ -1,6 +1,6 @@
 import { dockerImageMetadata, TDockerImageReference, TDockerInspectMetadata } from "./local-image-metadata";
 import { TDockerImageLabels } from "./registry-metadata-client";
-import { inject } from "nano-inject";
+import { inject } from "@shepherdorg/nano-inject";
 
 import * as _ from "lodash";
 

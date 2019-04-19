@@ -27,7 +27,8 @@
     "tdd": "mocha -R dot --require ts-node/register --recursive --watch-extensions ts,js --watch ./**/*.spec.ts",
     "prepush": "npm run ci",
     "format": "prettier --ignore-path ../../.prettierignore --write 'lib/**/*.{ts,js}'",
-    "format-verify": "prettier  --ignore-path ../../.prettierignore -l 'lib/**/*.{ts,js}'"
+    "format-verify": "prettier  --ignore-path ../../.prettierignore -l 'lib/**/*.{ts,js}'",
+    "prepublishOnly": "npm ci && npm run build && npm run test"
   },
   "devDependencies": {
     "@types/mocha": "^5.2.5",
@@ -38,6 +39,5 @@
     "prettier": "^1.14.2",
     "ts-node": "^7.0.1",
     "typescript": "^3.1.1"
-  },
-  "gitHead": "bc5fcea086204f2976042dc0ea7b1ce2f3d68e84"
+  }
 }

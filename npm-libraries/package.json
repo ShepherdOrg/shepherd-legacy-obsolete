@@ -4,7 +4,9 @@
   "description": "Shepherd published packages",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "yamrt ./packages",
+    "publish": "yamrt ./packages --publish"
   },
   "repository": {
     "type": "git",
@@ -17,7 +19,9 @@
   },
   "homepage": "https://github.com/ShepherdOrg/shepherd#readme",
   "devDependencies": {
-    "lerna": "^3.13.0",
-    "oao": "^1.5.1"
+    "yamrt": "0.0.1-alpha-13"
+  },
+  "yamrt": {
+    "publish": false
   }
 }

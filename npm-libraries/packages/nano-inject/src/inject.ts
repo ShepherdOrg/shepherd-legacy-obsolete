@@ -5,4 +5,4 @@ export function inject(provided){
         }
         return provided[dependencyName];
     }
-};
+}

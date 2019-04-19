@@ -17,6 +17,8 @@ without deciding too much what that granularity is. The objective is to be able 
 together, with focus on capturing difference between environments on the development lifecycle axis (dev, test, stage, etc...),
 as well as other axis, such as availability regions or customers.
 
+[12 Factor App Config](https://12factor.net/config)
+
 Another goal is to enable simple deployment of an arbitrary number of components (or services) in a single action, supporting
 another goal of good software architecture as defined in "Clean Archtecture": 
 
@@ -56,10 +58,10 @@ names of companies, and so on.
 
 # Todo
 
+1. Support storing version of deployment outside VCS. Has tracability implications, needs to be designed carefully.
 1. Support synchronous deployment of service. Means blocking until all pods are updated and reported as Running.
 1. Support rollback to last version. See ideas below.
 1. Code cleanup...remove script leftovers from toolchain. Code reorg?
-1. Increase flexibility regarding location of /deployments/central/images.yaml. 
 1. Support hierarchical folder/herd structure, with each dir adding env variables to those defined higher up.
 1. Command line tools - installer - inspection of image metadata
 1. Feature deployment using namespaces/external names.
