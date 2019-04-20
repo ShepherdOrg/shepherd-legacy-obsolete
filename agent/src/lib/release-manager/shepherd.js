@@ -48,7 +48,7 @@ if(process.env.SHEPHERD_PG_HOST){
 const StateStore = require("../state-store/state-store");
 const HerdLoader = require('./herd-loader');
 const ReleasePlanModule = require('./release-plan');
-const exec = require('exec');
+const exec = require('@shepherdorg/exec');
 
 
 function terminateProcess(exitCode) {

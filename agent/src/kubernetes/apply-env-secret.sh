@@ -1,4 +1,5 @@
 #!/bin/bash
+# TODO: Remove this file, obsolete legacy stuff.
 set -e
 set -o pipefail
 

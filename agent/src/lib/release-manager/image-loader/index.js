@@ -16,6 +16,8 @@ module.exports = function (injected) {
         return new Promise(function (resolve, reject) {
             let origin = imageMetadata.imageDefinition.image + ':' + imageMetadata.imageDefinition.imagetag + ':kube.config.tar.base64';
 
+            // Support mustache template expansion as well as envsubst template expansion
+
             let lines = deploymentFileContent.content.split('\n');
             try {
                 if(options.testRunMode()){

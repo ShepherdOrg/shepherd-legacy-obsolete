@@ -24,7 +24,7 @@ RUN \
     cp /usr/bin/envsubst /usr/local/bin/envsubst && \
     apk del build_deps
 
-# Create standard nodejs alias
+# Create nodejs alias
 RUN ln -s /usr/bin/node /usr/bin/nodejs
 
 ## Support for running docker inside docker.
@@ -64,13 +64,13 @@ RUN set -ex; \
 	apk del .fetch-deps; \
 	docker -v
 
-
+RUN npm install -g yarn
 
 WORKDIR /code
 
 COPY ./src/ .
 
-RUN npm run build-packages && npm install --loglevel=warn
+RUN yarn install
 
 # Trick to make node_modules accessible when source directory is linked during testing.
 RUN mv /code/node_modules /node_modules

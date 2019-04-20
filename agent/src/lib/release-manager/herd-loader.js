@@ -8,7 +8,7 @@ const calculateImagePlan = require('./image-loader')(inject({
     kubeSupportedExtensions
 }));
 
-const labelsLoader = require('docker-image-metadata-loader')
+const labelsLoader = require('@shepherdorg/docker-image-metadata-loader')
 
 function splitDockerImageTag (imgObj) {
   let colonIdx = imgObj.dockerImage.indexOf(":");
