@@ -2,6 +2,7 @@ const _ = require('lodash');
 const fs = require('fs');
 const path = require('path');
 const expandEnv = require('../../expandenv');
+const expandtemplate = require('../../expandtemplate');
 const base64EnvSubst = require('../../base64-env-subst').processLine;
 
 const identifyDocument = require('../../k8s-deployment-document-identifier');
@@ -90,13 +91,16 @@ module.exports = function (injected) {
                                             reject(e);
                                         }
                                     });
+
+                                    let rawDoc = lines.join('\n');
+
+                                    rawDoc = expandtemplate(rawDoc);
+
                                     if(process.env.hasOwnProperty(imageVariableName)){
                                         delete process.env.TPL_DOCKER_IMAGE;
                                     }
 
-
-                                    let deploymentDescriptor = applyClusterPolicies(lines.join('\n'));
-
+                                    let deploymentDescriptor = applyClusterPolicies(rawDoc);
 
                                     let documentIdentifier = identifyDocument(deploymentDescriptor);
                                     let deployment = {

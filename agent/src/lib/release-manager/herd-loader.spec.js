@@ -78,10 +78,11 @@ describe('herd.yaml loading', function () {
     });
 
     it('should fail if file does not exist', function (done) {
+        console.log('Loading', __dirname + '/testdata/does-not-exist.yaml')
         loader.loadHerd(__dirname + '/testdata/does-not-exist.yaml').then(function (plan) {
             expect().fail('Should not finish!')
         }).catch(function (error) {
-            expect(error).to.equal('/code/lib/release-manager/testdata/does-not-exist.yaml does not exist!');
+            expect(error).to.contain('/testdata/does-not-exist.yaml does not exist!');
             done();
         });
 

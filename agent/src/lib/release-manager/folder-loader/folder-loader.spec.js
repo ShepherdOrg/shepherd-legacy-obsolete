@@ -43,8 +43,12 @@ describe('k8s deployment file directory structure release plan loader', function
         });
 
         it('should expand env variables in deployment file on load', function () {
-            // expect(JSON.stringify(plan.addedK8sDeployments)).to.be('');
             expect(plan.addedK8sDeployments['Deployment_www-icelandair-com-fromdir'].descriptor).not.to.contain('${TPL_DOCKER_IMAGE}');
+        });
+
+        it('should expand env variables in deployment file on load, using handlebars template format', function () {
+            expect(plan.addedK8sDeployments['Deployment_www-icelandair-com-fromdir'].descriptor).not.to.contain('{{{TPL_DOCKER_IMAGE}}}');
+            expect(plan.addedK8sDeployments['Deployment_www-icelandair-com-fromdir'].descriptor).to.contain("secondaryImage: 'www-icelandair-image:1.0'");
         });
 
         it('should add origin to plan', function () {

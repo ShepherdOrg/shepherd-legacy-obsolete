@@ -17,6 +17,7 @@ spec:
         - name: registry-pull-secret
       containers:
         - image: ${TPL_DOCKER_IMAGE}
+          secondaryImage: {{{ TPL_DOCKER_IMAGE }}}
           name: www-icelandair-com
           resources:
             limits:

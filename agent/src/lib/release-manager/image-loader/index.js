@@ -1,6 +1,9 @@
 const untarBase64String = require('../../untar-string');
 const identifyDocument = require('../../k8s-deployment-document-identifier');
+
 const expandEnv = require('../../expandenv');
+const expandtemplate = require('../../expandtemplate');
+
 const applyClusterPolicies = require('../../apply-k8s-policy').applyPoliciesToDoc;
 const JSYAML = require('js-yaml');
 const yamlLoad = require('../../k8s-feature-deployment/multipart-yaml-load');
@@ -12,29 +15,33 @@ const path = require('path');
 module.exports = function (injected) {
     const kubeSupportedExtensions = injected('kubeSupportedExtensions');
 
-    function calculateFileDeploymentPlan(deploymentFileContent, imageMetadata, fileName, featureDeploymentConfig) {
+    function calculateFileDeploymentPlan (deploymentFileContent, imageMetadata, fileName, featureDeploymentConfig) {
         return new Promise(function (resolve, reject) {
             let origin = imageMetadata.imageDefinition.image + ':' + imageMetadata.imageDefinition.imagetag + ':kube.config.tar.base64';
 
             // Support mustache template expansion as well as envsubst template expansion
 
             let lines = deploymentFileContent.content.split('\n');
+            let fileContents;
             try {
-                if(options.testRunMode()){
-                    process.env.TPL_DOCKER_IMAGE = 'fixed-for-testing-purposes'
+                if (options.testRunMode()) {
+                    process.env.TPL_DOCKER_IMAGE = 'fixed-for-testing-purposes';
                 } else {
                     process.env.TPL_DOCKER_IMAGE = imageMetadata.imageDefinition.image + ':' + imageMetadata.imageDefinition.imagetag;
                 }
                 _.each(lines, function (line, idx) {
                     try {
                         lines[idx] = expandEnv(line);
-                        lines[idx] = base64EnvSubst(lines[idx], {})
+                        lines[idx] = base64EnvSubst(lines[idx], {});
                     } catch (error) {
                         let message = 'In line ' + idx + '\n';
                         message += error;
                         throw new Error(message);
-                        }
+                    }
                 });
+                fileContents = lines.join('\n');
+                fileContents = expandtemplate(fileContents);
+
                 delete process.env.TPL_DOCKER_IMAGE;
             } catch (error) {
                 let message = 'In file ' + fileName + '\n';
@@ -42,14 +49,13 @@ module.exports = function (injected) {
                 reject(message);
                 return;
             }
-            let fileContents = lines.join('\n');
             if (featureDeploymentConfig.isFeatureDeployment) {
                 fileContents = modifyDeploymentDocument(fileContents, {
                     ttlHours: imageMetadata.imageDefinition.timeToLiveHours,
                     newName: featureDeploymentConfig.newName,
                     nameReferenceChanges: featureDeploymentConfig.nameReferenceChanges
                 });
-                origin = featureDeploymentConfig.origin
+                origin = featureDeploymentConfig.origin;
             }
 
             let deploymentDescriptor = applyClusterPolicies(fileContents);
@@ -57,14 +63,14 @@ module.exports = function (injected) {
             let documentIdentifier = identifyDocument(deploymentDescriptor);
 
             let plan = {
-                operation: imageMetadata.imageDefinition.delete ? "delete" : "apply",
+                operation: imageMetadata.imageDefinition.delete ? 'delete' : 'apply',
                 identifier: documentIdentifier,
                 version: imageMetadata.imageDefinition.imagetag,
                 descriptor: deploymentDescriptor,
                 origin: origin,
                 type: 'k8s',
                 fileName: fileName,
-                herdName:imageMetadata.imageDefinition.herdName
+                herdName: imageMetadata.imageDefinition.herdName
             };
             resolve(plan);
 
@@ -72,26 +78,28 @@ module.exports = function (injected) {
     }
 
     function getKubeConfigTarLabel (imageMetadata) {
-        return imageMetadata.dockerLabels['is.icelandairlabs.kube.config.tar.base64'] || imageMetadata.dockerLabels['shepherd.kube.config.tar.base64'];
+        return imageMetadata.dockerLabels['shepherd.kube.config.tar.base64'] || imageMetadata.dockerLabels['is.icelandairlabs.kube.config.tar.base64'];
     }
 
     function getDeployerLabel (imageMetadata) {
-        return imageMetadata.dockerLabels['is.icelandairlabs.deployer'] ||  imageMetadata.dockerLabels['shepherd.deployer'];
+        return imageMetadata.dockerLabels['shepherd.deployer'] || imageMetadata.dockerLabels['is.icelandairlabs.deployer'];
     }
 
     function getDeployerCommandLabel (imageMetadata) {
-        return imageMetadata.dockerLabels['is.icelandairlabs.deployer.command'];
+        return imageMetadata.dockerLabels['shepherd.deployer.command'] || imageMetadata.dockerLabels['is.icelandairlabs.deployer.command'];
     }
 
     function getEnvVariablesLabel (imageMetadata) {
-        let newVar = imageMetadata.dockerLabels['is.icelandairlabs.environment.variables'] || imageMetadata.dockerLabels['is.icelandairlabs.deployer.environment'];
-        return newVar;
+        return imageMetadata.dockerLabels['shepherd.environment.variables']
+            || imageMetadata.dockerLabels['shepherd.deployer.environment']
+            || imageMetadata.dockerLabels['is.icelandairlabs.environment.variables']
+            || imageMetadata.dockerLabels['is.icelandairlabs.deployer.environment'];
     }
 
-    function calculateImagePlan(imageMetadata) {
+    function calculateImagePlan (imageMetadata) {
         return new Promise(function (resolve, reject) {
             let plan = {
-                herdName:imageMetadata.imageDefinition.herdName
+                herdName: imageMetadata.imageDefinition.herdName
             };
 
             if (imageMetadata.dockerLabels) {
@@ -103,15 +111,15 @@ module.exports = function (injected) {
                         let planPromises = [];
                         let nameReferenceChanges = {};
                         let featureDeploymentConfig = {
-                            isFeatureDeployment:false
+                            isFeatureDeployment: false
                         };
 
-                        if(process.env.UPSTREAM_IMAGE_NAME === imageMetadata.imageDefinition.herdName && process.env.FEATURE_NAME ){
-                            let cleanedName = process.env.FEATURE_NAME.replace(/\//g,'--').toLowerCase();
+                        if (process.env.UPSTREAM_IMAGE_NAME === imageMetadata.imageDefinition.herdName && process.env.FEATURE_NAME) {
+                            let cleanedName = process.env.FEATURE_NAME.replace(/\//g, '--').toLowerCase();
                             featureDeploymentConfig.isFeatureDeployment = true;
                             featureDeploymentConfig.ttlHours = process.env.FEATURE_TTL_HOURS;
                             featureDeploymentConfig.newName = cleanedName;
-                            featureDeploymentConfig.origin = imageMetadata.imageDefinition.herdName + '::' + cleanedName
+                            featureDeploymentConfig.origin = imageMetadata.imageDefinition.herdName + '::' + cleanedName;
                         }
 
                         if (imageMetadata.imageDefinition.featureDeployment) {
@@ -121,19 +129,19 @@ module.exports = function (injected) {
                             featureDeploymentConfig.origin = imageMetadata.imageDefinition.herdName + '::feature';
                         }
 
-                        if (featureDeploymentConfig.isFeatureDeployment){
+                        if (featureDeploymentConfig.isFeatureDeployment) {
                             _.forEach(plan.files, function (deploymentFileContent, fileName) {
-                                if(!kubeSupportedExtensions[path.extname(fileName)]){
+                                if (!kubeSupportedExtensions[path.extname(fileName)]) {
                                     // console.debug('Unsupported extension ', path.extname(fileName));
                                     return;
                                 }
 
-                                if(deploymentFileContent.content){
+                                if (deploymentFileContent.content) {
                                     let parsedMultiContent = yamlLoad(deploymentFileContent.content);
-                                    _.forEach(parsedMultiContent, function(parsedContent){
-                                        if(parsedContent){
+                                    _.forEach(parsedMultiContent, function (parsedContent) {
+                                        if (parsedContent) {
                                             nameReferenceChanges[parsedContent.kind] = nameReferenceChanges[parsedContent.kind] || {};
-                                            nameReferenceChanges[parsedContent.kind][parsedContent.metadata.name] =  parsedContent.metadata.name + '-' + featureDeploymentConfig.newName;
+                                            nameReferenceChanges[parsedContent.kind][parsedContent.metadata.name] = parsedContent.metadata.name + '-' + featureDeploymentConfig.newName;
                                         } else {
                                             console.warn('Parsed content is NULL!!!', deploymentFileContent.content);
                                         }
@@ -144,7 +152,7 @@ module.exports = function (injected) {
                         }
 
                         _.forEach(plan.files, function (deploymentFileContent, fileName) {
-                            if(!kubeSupportedExtensions[path.extname(fileName)]){
+                            if (!kubeSupportedExtensions[path.extname(fileName)]) {
                                 // console.debug('Unsupported extension ', path.extname(fileName));
                                 return;
                             }
@@ -159,7 +167,7 @@ module.exports = function (injected) {
                                 }
                             } catch (e) {
                                 let error = 'When processing ' + fileName + ':\n';
-                                reject(error + e)
+                                reject(error + e);
                             }
                         });
                         Promise.all(planPromises).then(function (allPlans) {
@@ -170,10 +178,9 @@ module.exports = function (injected) {
                             reject(message);
                         });
 
-
                     }).catch(function (err) {
                         reject('When processing tar.base64 of docker image ' + JSON.stringify(imageMetadata) + '\n' + err);
-                    })
+                    });
 
                 } else if (getDeployerLabel(imageMetadata)) {
                     try {
@@ -181,9 +188,9 @@ module.exports = function (injected) {
                         let herdName = imageMetadata.imageDefinition.herdName;
 
                         let deployerPlan = {
-                            dockerParameters: ['-i','--rm','-e', expandEnv("ENV=${ENV}")],
-                            forTestParameters:undefined,
-                            imageWithoutTag:undefined,
+                            dockerParameters: ['-i', '--rm', '-e', expandEnv('ENV=${ENV}')],
+                            forTestParameters: undefined,
+                            imageWithoutTag: undefined,
                             origin: herdName,
                             type: 'deployer',
                             operation: 'run',
@@ -203,18 +210,18 @@ module.exports = function (injected) {
                         }
 
                         envList.forEach(function (env_item) {
-                            deployerPlan.dockerParameters.push("-e");
+                            deployerPlan.dockerParameters.push('-e');
                             deployerPlan.dockerParameters.push((env_item));
                         });
 
                         deployerPlan.forTestParameters = deployerPlan.dockerParameters.slice(0); // Clone array
                         let dockerImageWithVersion = imageMetadata.imageDefinition.dockerImage || (imageMetadata.imageDefinition.image + ':' + imageMetadata.imageDefinition.imagetag);
-                        deployerPlan.imageWithoutTag = dockerImageWithVersion.replace(/:.*/g, "");
+                        deployerPlan.imageWithoutTag = dockerImageWithVersion.replace(/:.*/g, '');
 
                         deployerPlan.dockerParameters.push(dockerImageWithVersion);
                         deployerPlan.forTestParameters.push(deployerPlan.imageWithoutTag + ':[image_version]');
 
-                        if(deployerPlan.command){
+                        if (deployerPlan.command) {
                             deployerPlan.dockerParameters.push(deployerPlan.command);
                             deployerPlan.forTestParameters.push(deployerPlan.command);
                         }
@@ -222,17 +229,16 @@ module.exports = function (injected) {
                         deployerPlan.identifier = herdName;
                         resolve([deployerPlan]);
 
-
                     } catch (e) {
                         reject(e);
                     }
                 } else {
-                    reject("No plan in place to deal with " + JSON.stringify(imageMetadata))
+                    reject('No plan in place to deal with ' + JSON.stringify(imageMetadata));
                 }
             } else {
-                reject("No plan in place to deal with " + JSON.stringify(imageMetadata))
+                reject('No plan in place to deal with ' + JSON.stringify(imageMetadata));
             }
-        })
+        });
     }
 
     return calculateImagePlan;
