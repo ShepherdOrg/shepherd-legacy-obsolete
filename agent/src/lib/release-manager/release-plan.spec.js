@@ -8,7 +8,7 @@ const k8sDeployments = {
         "operation": "apply",
         "identifier": "ConfigMap_www-icelandair-com-nginx-acls",
         "descriptor": "apiVersion: v1\nkind: ConfigMap\nmetadata:\n  name: www-icelandair-com-nginx-acls\n  labels:\n    team: flip\ndata:\n  whitelist: |-\n    ${Base64Decode:WWW_ICELANDAIR_IP_WHITELIST}\n",
-        "origin": "testenvimage:0.0.0:is.icelandairlabs.kube.config.tar.base64",
+        "origin": "testenvimage:0.0.0:shepherd.kube.config.tar.base64",
         "type": "k8s"
     },
     "Deployment_www-icelandair-com": {
@@ -16,7 +16,7 @@ const k8sDeployments = {
         "operation": "apply",
         "identifier": "Deployment_www-icelandair-com",
         "descriptor": "apiVersion: extensions/v1beta1\nkind: Deployment\nmetadata:\n  name: www-icelandair-com\n  labels:\n    name: www-icelandair-com\n    tier: frontend\nspec:\n  replicas: 2\n  template:\n    metadata:\n      labels:\n        name: www-icelandair-com\n        tier: frontend\n    spec:\n      imagePullSecrets:\n        - name: registry-pull-secret\n      containers:\n        - image: testing123\n          name: www-icelandair-com\n          resources:\n            limits:\n              cpu: 0.8\n              memory: 512M\n            requests:\n              cpu: 25m\n              memory: 256M\n          ports:\n            - containerPort: 81\n              name: http-proxy\n              protocol: TCP\n            - containerPort: 444\n              name: https-proxy\n              protocol: TCP\n          volumeMounts:\n            - name: certs-volume\n              readOnly: true\n              mountPath: /volumes/certs\n            - name: nginx-acls\n              readOnly: true\n              mountPath: /etc/nginx/acls/\n          env:\n            - name: RUNTIME_ENVIRONMENT\n              valueFrom:\n                configMapKeyRef:\n                  name: testing123\n                  key: ENV\n        - image: DOCKER_IMAGE_SSR\n          name: www-icelandair-com-ssr\n          resources:\n            limits:\n              cpu: 0.6\n              memory: 512M\n            requests:\n              cpu: 0.4\n              memory: 256M\n      volumes:\n        - name: certs-volume\n          secret:\n            secretName: star-cert-secret\n        - name: nginx-acls\n          configMap:\n            name: www-icelandair-com-nginx-acls\n            items:\n              - key: whitelist\n                path: whitelist.conf",
-        "origin": "testenvimage:0.0.0:is.icelandairlabs.kube.config.tar.base64",
+        "origin": "testenvimage:0.0.0:shepherd.kube.config.tar.base64",
         "type": "k8s"
     },
     "Namespace_monitors": {
@@ -228,7 +228,7 @@ describe('Release plan', function () {
 
 
             it('should propagate error to caller', function () {
-                expect(saveError).to.be('Failed to save state after successful deployment! testenvimage:0.0.0:is.icelandairlabs.kube.config.tar.base64/ConfigMap_www-icelandair-com-nginx-acls\nState store failure!')
+                expect(saveError).to.be('Failed to save state after successful deployment! testenvimage:0.0.0:shepherd.kube.config.tar.base64/ConfigMap_www-icelandair-com-nginx-acls\nState store failure!')
             });
         });
 

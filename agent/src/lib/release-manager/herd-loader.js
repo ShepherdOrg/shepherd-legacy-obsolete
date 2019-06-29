@@ -69,9 +69,9 @@ module.exports = function (injected) {
                         function addDependencies (imageMetaData) {
                             return new Promise(function (resolve, reject) {
                                 let dependency;
-                                if (imageMetaData.dockerLabels['is.icelandairlabs.dbmigration']) { // TODO PUBLISH - SUPPORT shepherd.dbmigration label here.
-                                    logger.debug('add dependencies from ', imageMetaData.dockerLabels['is.icelandairlabs.dbmigration']);
-                                    dependency = imageMetaData.dockerLabels['is.icelandairlabs.dbmigration'];
+                                if (imageMetaData.dockerLabels['shepherd.dbmigration']) {
+                                    logger.debug('add dependencies from shepherd.dbmigration ', imageMetaData.dockerLabels['shepherd.dbmigration']);
+                                    dependency = imageMetaData.dockerLabels['shepherd.dbmigration'];
                                 }
                                 if (dependency) {
                                     imageDependencies[dependency] = {

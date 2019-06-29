@@ -42,17 +42,17 @@ describe('Docker image plan loader', function () {
                 imagetag: '0.0.0'
             },
             dockerLabels: {
-                "is.icelandairlabs.builddate": "Tue 26 Dec 14:52:52 GMT 2017",
-                "is.icelandairlabs.deployer": "true",
-                "is.icelandairlabs.deployer.command": "ls",
-                "is.icelandairlabs.deployer.environment": "THIS_IS_DEPLOYER_ONE=true",
-                "is.icelandairlabs.environment.variables": "EXPORT1=${EXPORT1},DB_PASS=$MICRO_SITES_DB_PASSWORD",
-                "is.icelandairlabs.git.branch": "master",
-                "is.icelandairlabs.git.hash": "b14892def916aa1fffa9728a5d58f7359f982c02",
-                "is.icelandairlabs.git.url": "https://github.com/Icelandair/shepherd.git",
-                "is.icelandairlabs.lastcommits": "VGh1LCAyMSBEZWMgMjAxNyAxMDo0NTo0NSArMDAwMCBieSBHdcOwbGF1Z3VyIFMuIEVnaWxzc29u\nLiAtLS0gQmV0dGVyIHVzZSByaWdodCBtYWtlIHRhcmdldCBXZWQsIDIwIERlYyAyMDE3IDE4OjE1\nOjUwICswMDAwIGJ5IEd1w7BsYXVndXIgUy4gRWdpbHNzb24uIC0tLSBBIGxpdHRsZSB0cmlja2Vy\neSB0byBtYWtlIGphc21pbmUgcnVubmFibGUgd2l0aCBzcmMgZGlyIG1hcHBlZCBpbiBkb2NrZXIt\nY29tcG9zZS4gV2VkLCAyMCBEZWMgMjAxNyAxNzoxMDozOCArMDAwMCBieSBHdcOwbGF1Z3VyIFMu\nIEVnaWxzc29uLiAtLS0gSmVua2lucyBqb2IgY2Fubm90IHVzZSAtaXQgV2VkLCAyMCBEZWMgMjAx\nNyAxNjo1OToxMyArMDAwMCBieSBHdcOwbGF1Z3VyIFMuIEVnaWxzc29uLiAtLS0gQWxsIHRlc3Rz\nIG5vdyBydW5uaW5nIGluIGRvY2tlciBpbWFnZXMuIEFkZGVkIEplbmtpbnNmaWxlLiBQbHVzIGxv\ndHMgb2Ygc21hbGxlciBpbXByb3ZlbWVudHMvY2hhbmdlcy4gV2VkLCAyMCBEZWMgMjAxNyAwOToz\nMToxMCArMDAwMCBieSBHdcOwbGF1Z3VyIEVnaWxzc29uIEBndWxsaS4gLS0tIFJlc29sdmUgdG9k\nbywgZXhpdCB3aXRoIGVycm9yIGlmIGltYWdlIHNwZWNpZmllZCBpcyBub3QgYWN0aW9uYWJsZS4K",
-                "is.icelandairlabs.name": "Testimage",
-                "is.icelandairlabs.version": "0.0.0"
+                "shepherd.builddate": "Tue 26 Dec 14:52:52 GMT 2017",
+                "shepherd.deployer": "true",
+                "shepherd.deployer.command": "ls",
+                "shepherd.deployer.environment": "THIS_IS_DEPLOYER_ONE=true",
+                "shepherd.environment.variables": "EXPORT1=${EXPORT1},DB_PASS=$MICRO_SITES_DB_PASSWORD",
+                "shepherd.git.branch": "master",
+                "shepherd.git.hash": "b14892def916aa1fffa9728a5d58f7359f982c02",
+                "shepherd.git.url": "https://github.com/Icelandair/shepherd.git",
+                "shepherd.lastcommits": "VGh1LCAyMSBEZWMgMjAxNyAxMDo0NTo0NSArMDAwMCBieSBHdcOwbGF1Z3VyIFMuIEVnaWxzc29u\nLiAtLS0gQmV0dGVyIHVzZSByaWdodCBtYWtlIHRhcmdldCBXZWQsIDIwIERlYyAyMDE3IDE4OjE1\nOjUwICswMDAwIGJ5IEd1w7BsYXVndXIgUy4gRWdpbHNzb24uIC0tLSBBIGxpdHRsZSB0cmlja2Vy\neSB0byBtYWtlIGphc21pbmUgcnVubmFibGUgd2l0aCBzcmMgZGlyIG1hcHBlZCBpbiBkb2NrZXIt\nY29tcG9zZS4gV2VkLCAyMCBEZWMgMjAxNyAxNzoxMDozOCArMDAwMCBieSBHdcOwbGF1Z3VyIFMu\nIEVnaWxzc29uLiAtLS0gSmVua2lucyBqb2IgY2Fubm90IHVzZSAtaXQgV2VkLCAyMCBEZWMgMjAx\nNyAxNjo1OToxMyArMDAwMCBieSBHdcOwbGF1Z3VyIFMuIEVnaWxzc29uLiAtLS0gQWxsIHRlc3Rz\nIG5vdyBydW5uaW5nIGluIGRvY2tlciBpbWFnZXMuIEFkZGVkIEplbmtpbnNmaWxlLiBQbHVzIGxv\ndHMgb2Ygc21hbGxlciBpbXByb3ZlbWVudHMvY2hhbmdlcy4gV2VkLCAyMCBEZWMgMjAxNyAwOToz\nMToxMCArMDAwMCBieSBHdcOwbGF1Z3VyIEVnaWxzc29uIEBndWxsaS4gLS0tIFJlc29sdmUgdG9k\nbywgZXhpdCB3aXRoIGVycm9yIGlmIGltYWdlIHNwZWNpZmllZCBpcyBub3QgYWN0aW9uYWJsZS4K",
+                "shepherd.name": "Testimage",
+                "shepherd.version": "0.0.0"
             }
         };
 
@@ -79,7 +79,7 @@ describe('Docker image plan loader', function () {
                 expect(loadedPlan.dockerParameters).to.contain('testenvimage-migrations:0.0.0')
             });
 
-            it('should extract is.icelandairlabs.deployer.command and use as plan command', function () {
+            it('should extract shepherd.deployer.command and use as plan command', function () {
                 expect(loadedPlan.command).to.be('ls')
             });
 
@@ -102,16 +102,16 @@ describe('Docker image plan loader', function () {
                     imagetag: '0.0.0'
                 },
                 dockerLabels: {
-                    "is.icelandairlabs.builddate": "Tue 26 Dec 14:52:52 GMT 2017",
-                    "is.icelandairlabs.deployer": "true",
-                    "is.icelandairlabs.deployer.environment": "THIS_IS_DEPLOYER_ONE=true",
-                    "is.icelandairlabs.environment.variables": "EXPORT1=${EXPORT1},DB_PASS=$MICRO_SITES_DB_PASSWORD",
-                    "is.icelandairlabs.git.branch": "master",
-                    "is.icelandairlabs.git.hash": "b14892def916aa1fffa9728a5d58f7359f982c02",
-                    "is.icelandairlabs.git.url": "https://github.com/Icelandair/shepherd.git",
-                    "is.icelandairlabs.lastcommits": "VGh1LCAyMSBEZWMgMjAxNyAxMDo0NTo0NSArMDAwMCBieSBHdcOwbGF1Z3VyIFMuIEVnaWxzc29u\nLiAtLS0gQmV0dGVyIHVzZSByaWdodCBtYWtlIHRhcmdldCBXZWQsIDIwIERlYyAyMDE3IDE4OjE1\nOjUwICswMDAwIGJ5IEd1w7BsYXVndXIgUy4gRWdpbHNzb24uIC0tLSBBIGxpdHRsZSB0cmlja2Vy\neSB0byBtYWtlIGphc21pbmUgcnVubmFibGUgd2l0aCBzcmMgZGlyIG1hcHBlZCBpbiBkb2NrZXIt\nY29tcG9zZS4gV2VkLCAyMCBEZWMgMjAxNyAxNzoxMDozOCArMDAwMCBieSBHdcOwbGF1Z3VyIFMu\nIEVnaWxzc29uLiAtLS0gSmVua2lucyBqb2IgY2Fubm90IHVzZSAtaXQgV2VkLCAyMCBEZWMgMjAx\nNyAxNjo1OToxMyArMDAwMCBieSBHdcOwbGF1Z3VyIFMuIEVnaWxzc29uLiAtLS0gQWxsIHRlc3Rz\nIG5vdyBydW5uaW5nIGluIGRvY2tlciBpbWFnZXMuIEFkZGVkIEplbmtpbnNmaWxlLiBQbHVzIGxv\ndHMgb2Ygc21hbGxlciBpbXByb3ZlbWVudHMvY2hhbmdlcy4gV2VkLCAyMCBEZWMgMjAxNyAwOToz\nMToxMCArMDAwMCBieSBHdcOwbGF1Z3VyIEVnaWxzc29uIEBndWxsaS4gLS0tIFJlc29sdmUgdG9k\nbywgZXhpdCB3aXRoIGVycm9yIGlmIGltYWdlIHNwZWNpZmllZCBpcyBub3QgYWN0aW9uYWJsZS4K",
-                    "is.icelandairlabs.name": "Testimage",
-                    "is.icelandairlabs.version": "0.0.0"
+                    "shepherd.builddate": "Tue 26 Dec 14:52:52 GMT 2017",
+                    "shepherd.deployer": "true",
+                    "shepherd.deployer.environment": "THIS_IS_DEPLOYER_ONE=true",
+                    "shepherd.environment.variables": "EXPORT1=${EXPORT1},DB_PASS=$MICRO_SITES_DB_PASSWORD",
+                    "shepherd.git.branch": "master",
+                    "shepherd.git.hash": "b14892def916aa1fffa9728a5d58f7359f982c02",
+                    "shepherd.git.url": "https://github.com/Icelandair/shepherd.git",
+                    "shepherd.lastcommits": "VGh1LCAyMSBEZWMgMjAxNyAxMDo0NTo0NSArMDAwMCBieSBHdcOwbGF1Z3VyIFMuIEVnaWxzc29u\nLiAtLS0gQmV0dGVyIHVzZSByaWdodCBtYWtlIHRhcmdldCBXZWQsIDIwIERlYyAyMDE3IDE4OjE1\nOjUwICswMDAwIGJ5IEd1w7BsYXVndXIgUy4gRWdpbHNzb24uIC0tLSBBIGxpdHRsZSB0cmlja2Vy\neSB0byBtYWtlIGphc21pbmUgcnVubmFibGUgd2l0aCBzcmMgZGlyIG1hcHBlZCBpbiBkb2NrZXIt\nY29tcG9zZS4gV2VkLCAyMCBEZWMgMjAxNyAxNzoxMDozOCArMDAwMCBieSBHdcOwbGF1Z3VyIFMu\nIEVnaWxzc29uLiAtLS0gSmVua2lucyBqb2IgY2Fubm90IHVzZSAtaXQgV2VkLCAyMCBEZWMgMjAx\nNyAxNjo1OToxMyArMDAwMCBieSBHdcOwbGF1Z3VyIFMuIEVnaWxzc29uLiAtLS0gQWxsIHRlc3Rz\nIG5vdyBydW5uaW5nIGluIGRvY2tlciBpbWFnZXMuIEFkZGVkIEplbmtpbnNmaWxlLiBQbHVzIGxv\ndHMgb2Ygc21hbGxlciBpbXByb3ZlbWVudHMvY2hhbmdlcy4gV2VkLCAyMCBEZWMgMjAxNyAwOToz\nMToxMCArMDAwMCBieSBHdcOwbGF1Z3VyIEVnaWxzc29uIEBndWxsaS4gLS0tIFJlc29sdmUgdG9k\nbywgZXhpdCB3aXRoIGVycm9yIGlmIGltYWdlIHNwZWNpZmllZCBpcyBub3QgYWN0aW9uYWJsZS4K",
+                    "shepherd.name": "Testimage",
+                    "shepherd.version": "0.0.0"
                 }
             };
 
@@ -148,6 +148,48 @@ describe('Docker image plan loader', function () {
             });
 
         });
+    });
+
+    describe('is.icelandairlabs backwards compatibility', function () {
+
+        let dockerImageMetadata ={
+            imageDefinition: {
+                herdName: 'testimage',
+                image: 'testenvimage-migrations',
+                imagetag: '1.2.3'
+            },
+            dockerLabels:{
+                "is.icelandairlabs.builddate": "Tue 26 Dec 14:52:54 GMT 2017",
+                "is.icelandairlabs.deployer": "true",
+                "is.icelandairlabs.deployer.environment": "THIS_IS_DEPLOYER_ONE=true",
+                "is.icelandairlabs.environment.variables": "",
+                "is.icelandairlabs.git.branch": "master",
+                "is.icelandairlabs.git.hash": "b14892def916aa1fffa9728a5d58f7359f982c02",
+                "is.icelandairlabs.git.url": "https://github.com/Icelandair/is.icelandairlabs.git",
+                "is.icelandairlabs.lastcommits": "VGh1LCAyMSBEZWMgMjAxNyAxMDo0NTo0NSArMDAwMCBieSBHdcOwbGF1Z3VyIFMuIEVnaWxzc29u\nLiAtLS0gQmV0dGVyIHVzZSByaWdodCBtYWtlIHRhcmdldCBXZWQsIDIwIERlYyAyMDE3IDE4OjE1\nOjUwICswMDAwIGJ5IEd1w7BsYXVndXIgUy4gRWdpbHNzb24uIC0tLSBBIGxpdHRsZSB0cmlja2Vy\neSB0byBtYWtlIGphc21pbmUgcnVubmFibGUgd2l0aCBzcmMgZGlyIG1hcHBlZCBpbiBkb2NrZXIt\nY29tcG9zZS4gV2VkLCAyMCBEZWMgMjAxNyAxNzoxMDozOCArMDAwMCBieSBHdcOwbGF1Z3VyIFMu\nIEVnaWxzc29uLiAtLS0gSmVua2lucyBqb2IgY2Fubm90IHVzZSAtaXQgV2VkLCAyMCBEZWMgMjAx\nNyAxNjo1OToxMyArMDAwMCBieSBHdcOwbGF1Z3VyIFMuIEVnaWxzc29uLiAtLS0gQWxsIHRlc3Rz\nIG5vdyBydW5uaW5nIGluIGRvY2tlciBpbWFnZXMuIEFkZGVkIEplbmtpbnNmaWxlLiBQbHVzIGxv\ndHMgb2Ygc21hbGxlciBpbXByb3ZlbWVudHMvY2hhbmdlcy4gV2VkLCAyMCBEZWMgMjAxNyAwOToz\nMToxMCArMDAwMCBieSBHdcOwbGF1Z3VyIEVnaWxzc29uIEBndWxsaS4gLS0tIFJlc29sdmUgdG9k\nbywgZXhpdCB3aXRoIGVycm9yIGlmIGltYWdlIHNwZWNpZmllZCBpcyBub3QgYWN0aW9uYWJsZS4K",
+                "is.icelandairlabs.name": "TestimageFromIcelandairlabs",
+                "is.icelandairlabs.version": "0.1.2"
+            }
+        };
+
+        let loadedPlans;
+        beforeEach(function (done) {
+
+            loadPlan(dockerImageMetadata).then(function (plans) {
+                loadedPlans = plans;
+                done();
+            }).catch(function (error) {
+                console.debug('Failed to load plan', error);
+                done.fail(error);
+            });
+        });
+
+        it('should rewrite docker labels starting with is.icelandairlabs to labels starting with shepherd', () => {
+            expect(loadedPlan.dockerLabels['shepherd.version']).to.be('0.1.2');
+            expect(loadedPlan.dockerLabels['shepherd.name']).to.be('TestimageFromIcelandairlabs');
+            expect(loadedPlan.command).to.be('deploy');
+        });
+
     });
 
     describe('k8s deployment using base64 tar', function () {
@@ -195,11 +237,11 @@ describe('Docker image plan loader', function () {
                 delete process.env.PREFIXED_TOP_DOMAIN_NAME;
             });
 
-            it('should expand handlebar syntax in yaml files', () => {
+            it('should expand handlebars template', () => {
 
             });
 
-            it('should extract wanted environment variables from image metadata', function () {
+            it('should have loaded plan', function () {
                 expect(loadedPlan).to.be.ok();
             });
 
@@ -271,15 +313,15 @@ describe('Docker image plan loader', function () {
                 timeToLiveHours: 48
             },
             dockerLabels:{
-                "is.icelandairlabs.builddate": "Tue 26 Dec 14:52:54 GMT 2017",
-                "is.icelandairlabs.dbmigration": "testenvimage-migrations:0.0.0",
-                "is.icelandairlabs.git.branch": "master",
-                "is.icelandairlabs.git.hash": "b14892def916aa1fffa9728a5d58f7359f982c02",
-                "is.icelandairlabs.git.url": "https://github.com/Icelandair/shepherd.git",
-                "is.icelandairlabs.kube.config.tar.base64": "H4sIAEZiQloAA+1XTXPiOBDlzK9QpXLaKoFtDEz5RhLPrmvCRwEzmRsl7A5Rxba8sgyhsvnvK9t8\nGBsCSSbJTq3fBSy1XkvqVuupVncgcNnSA1/UK+8DRaLdbsa/arupZn/XqKgNTW21G0qrqVcUVdM1\npYKa7zSfHUShIByhyixyXfqM3bH+3xS1bPwXiwWmNrjEdwjl2GZebdtbW3ru63zEAW619EPxbzR0\nbTf+mqqozQpSfu1S9+N/Hn8S0B/AQ8p8A8GDAD/+G9bn6hQEUav31HcMdLVJgqonmx0iiFFFyCce\nGKiYNLLLJVNww9joWTOEBAVuoFvOfOnbqYYB2PEoLj1Sm4QG0uSXAC9wiYCULzuFGFlfR/3t8Rk3\nrf3GoB6ZwUCGewQ2B5Fhxituh9n3wDGHGQ0FX+JAGuMwsV7Z2pKbUF/ubHZ0wmyg88fx4Hpy1b/8\nZg4nVrfzp/m0MTph+vHuhCziNmTIk42gHhW5NjmVIDKQUvuSa/bAY3xpoKaqdXe6OPwdQXiQRz/A\nozVbWZ6A8TwF3u7KQPYa6Iua40qXfidEgAPOHpa5btkmmM1cA40vB89T63p+nlvu8EXkc+ZGHnRZ\n5BfXk3JuwyQzMcQ2yJXnyDkQp++7cpsEjyC/gzH3gIg7A53Vk9H1XcqzvW79GfUfMLHd1zsDYdcT\nmnpMU8/6AX++f7XD772x1TUnZu+HNez3umZvnHMxJ24EXznz8hmUHItbOuuS4Bssh3BbNFjH6fzR\n/DnoD8fq0x6Te5Brk/6LJyt7piaj0fCEY4XDkL/xaLU+7mil2binJB1JwrQ47fpN23rJ8PgSxHkO\nuTkxD72VlVhAweXeBNxEeNfXwd0/kMVUlvzCNuE08os72evKyltIjSDJ601/LZ5M9bNv2P82jum/\nEPhcNr1e/FWO6j9Nfub0n6JJ81L/fQCy+m++1nujNOinij3i+0wQEQtHA6VyapU1sYis3UdT4D4I\nCGuU1ckixC4jDp4SySLrS3ob4+39e/bH2UsUZBhNHebJuz++NUbfL6Sw6nas3mQwNL9aP5/iKaRK\nkwVbu7TTvJqM+4P1gF6nuxJiAognBaJLg40gFctATuFaTvxiNe9qRuTg5K9UNEo6nvAZiB2Rk5c2\nm/VmRut6ozB8LWQK8iVLEIILtmD85XobY1z91SlQZsDvlAGfXYBKfCqO3P+YyizhPnHfIgSO3P9K\nQ2/m7n9NVdrl/f8ReHPx32TIiRV7a78urIUaqsZJkat5ZY17HxzT/+l77k3y/+j5l+/bvP5XlUZ5\n/j8Ce8//5foRf1oF2HnDZ2tARkWtSTaPcwP9gxOj88cLEkJLvwKbOWDc3NxMrEvzutO76ljDiTWY\n3Pxljc1razR+Kg9yiRIlSpQoUaJEiRIlSrwa/wJ4qk95ACgAAA==",
-                "is.icelandairlabs.lastcommits": "VGh1LCAyMSBEZWMgMjAxNyAxMDo0NTo0NSArMDAwMCBieSBHdcOwbGF1Z3VyIFMuIEVnaWxzc29u\nLiAtLS0gQmV0dGVyIHVzZSByaWdodCBtYWtlIHRhcmdldCBXZWQsIDIwIERlYyAyMDE3IDE4OjE1\nOjUwICswMDAwIGJ5IEd1w7BsYXVndXIgUy4gRWdpbHNzb24uIC0tLSBBIGxpdHRsZSB0cmlja2Vy\neSB0byBtYWtlIGphc21pbmUgcnVubmFibGUgd2l0aCBzcmMgZGlyIG1hcHBlZCBpbiBkb2NrZXIt\nY29tcG9zZS4gV2VkLCAyMCBEZWMgMjAxNyAxNzoxMDozOCArMDAwMCBieSBHdcOwbGF1Z3VyIFMu\nIEVnaWxzc29uLiAtLS0gSmVua2lucyBqb2IgY2Fubm90IHVzZSAtaXQgV2VkLCAyMCBEZWMgMjAx\nNyAxNjo1OToxMyArMDAwMCBieSBHdcOwbGF1Z3VyIFMuIEVnaWxzc29uLiAtLS0gQWxsIHRlc3Rz\nIG5vdyBydW5uaW5nIGluIGRvY2tlciBpbWFnZXMuIEFkZGVkIEplbmtpbnNmaWxlLiBQbHVzIGxv\ndHMgb2Ygc21hbGxlciBpbXByb3ZlbWVudHMvY2hhbmdlcy4gV2VkLCAyMCBEZWMgMjAxNyAwOToz\nMToxMCArMDAwMCBieSBHdcOwbGF1Z3VyIEVnaWxzc29uIEBndWxsaS4gLS0tIFJlc29sdmUgdG9k\nbywgZXhpdCB3aXRoIGVycm9yIGlmIGltYWdlIHNwZWNpZmllZCBpcyBub3QgYWN0aW9uYWJsZS4K",
-                "is.icelandairlabs.name": "Testimage",
-                "is.icelandairlabs.version": "0.0.0"
+                "shepherd.builddate": "Tue 26 Dec 14:52:54 GMT 2017",
+                "shepherd.dbmigration": "testenvimage-migrations:0.0.0",
+                "shepherd.git.branch": "master",
+                "shepherd.git.hash": "b14892def916aa1fffa9728a5d58f7359f982c02",
+                "shepherd.git.url": "https://github.com/Icelandair/shepherd.git",
+                "shepherd.kube.config.tar.base64": "H4sIAEZiQloAA+1XTXPiOBDlzK9QpXLaKoFtDEz5RhLPrmvCRwEzmRsl7A5Rxba8sgyhsvnvK9t8\nGBsCSSbJTq3fBSy1XkvqVuupVncgcNnSA1/UK+8DRaLdbsa/arupZn/XqKgNTW21G0qrqVcUVdM1\npYKa7zSfHUShIByhyixyXfqM3bH+3xS1bPwXiwWmNrjEdwjl2GZebdtbW3ru63zEAW619EPxbzR0\nbTf+mqqozQpSfu1S9+N/Hn8S0B/AQ8p8A8GDAD/+G9bn6hQEUav31HcMdLVJgqonmx0iiFFFyCce\nGKiYNLLLJVNww9joWTOEBAVuoFvOfOnbqYYB2PEoLj1Sm4QG0uSXAC9wiYCULzuFGFlfR/3t8Rk3\nrf3GoB6ZwUCGewQ2B5Fhxituh9n3wDGHGQ0FX+JAGuMwsV7Z2pKbUF/ubHZ0wmyg88fx4Hpy1b/8\nZg4nVrfzp/m0MTph+vHuhCziNmTIk42gHhW5NjmVIDKQUvuSa/bAY3xpoKaqdXe6OPwdQXiQRz/A\nozVbWZ6A8TwF3u7KQPYa6Iua40qXfidEgAPOHpa5btkmmM1cA40vB89T63p+nlvu8EXkc+ZGHnRZ\n5BfXk3JuwyQzMcQ2yJXnyDkQp++7cpsEjyC/gzH3gIg7A53Vk9H1XcqzvW79GfUfMLHd1zsDYdcT\nmnpMU8/6AX++f7XD772x1TUnZu+HNez3umZvnHMxJ24EXznz8hmUHItbOuuS4Bssh3BbNFjH6fzR\n/DnoD8fq0x6Te5Brk/6LJyt7piaj0fCEY4XDkL/xaLU+7mil2binJB1JwrQ47fpN23rJ8PgSxHkO\nuTkxD72VlVhAweXeBNxEeNfXwd0/kMVUlvzCNuE08os72evKyltIjSDJ601/LZ5M9bNv2P82jum/\nEPhcNr1e/FWO6j9Nfub0n6JJ81L/fQCy+m++1nujNOinij3i+0wQEQtHA6VyapU1sYis3UdT4D4I\nCGuU1ckixC4jDp4SySLrS3ob4+39e/bH2UsUZBhNHebJuz++NUbfL6Sw6nas3mQwNL9aP5/iKaRK\nkwVbu7TTvJqM+4P1gF6nuxJiAognBaJLg40gFctATuFaTvxiNe9qRuTg5K9UNEo6nvAZiB2Rk5c2\nm/VmRut6ozB8LWQK8iVLEIILtmD85XobY1z91SlQZsDvlAGfXYBKfCqO3P+YyizhPnHfIgSO3P9K\nQ2/m7n9NVdrl/f8ReHPx32TIiRV7a78urIUaqsZJkat5ZY17HxzT/+l77k3y/+j5l+/bvP5XlUZ5\n/j8Ce8//5foRf1oF2HnDZ2tARkWtSTaPcwP9gxOj88cLEkJLvwKbOWDc3NxMrEvzutO76ljDiTWY\n3Pxljc1razR+Kg9yiRIlSpQoUaJEiRIlSrwa/wJ4qk95ACgAAA==",
+                "shepherd.lastcommits": "VGh1LCAyMSBEZWMgMjAxNyAxMDo0NTo0NSArMDAwMCBieSBHdcOwbGF1Z3VyIFMuIEVnaWxzc29u\nLiAtLS0gQmV0dGVyIHVzZSByaWdodCBtYWtlIHRhcmdldCBXZWQsIDIwIERlYyAyMDE3IDE4OjE1\nOjUwICswMDAwIGJ5IEd1w7BsYXVndXIgUy4gRWdpbHNzb24uIC0tLSBBIGxpdHRsZSB0cmlja2Vy\neSB0byBtYWtlIGphc21pbmUgcnVubmFibGUgd2l0aCBzcmMgZGlyIG1hcHBlZCBpbiBkb2NrZXIt\nY29tcG9zZS4gV2VkLCAyMCBEZWMgMjAxNyAxNzoxMDozOCArMDAwMCBieSBHdcOwbGF1Z3VyIFMu\nIEVnaWxzc29uLiAtLS0gSmVua2lucyBqb2IgY2Fubm90IHVzZSAtaXQgV2VkLCAyMCBEZWMgMjAx\nNyAxNjo1OToxMyArMDAwMCBieSBHdcOwbGF1Z3VyIFMuIEVnaWxzc29uLiAtLS0gQWxsIHRlc3Rz\nIG5vdyBydW5uaW5nIGluIGRvY2tlciBpbWFnZXMuIEFkZGVkIEplbmtpbnNmaWxlLiBQbHVzIGxv\ndHMgb2Ygc21hbGxlciBpbXByb3ZlbWVudHMvY2hhbmdlcy4gV2VkLCAyMCBEZWMgMjAxNyAwOToz\nMToxMCArMDAwMCBieSBHdcOwbGF1Z3VyIEVnaWxzc29uIEBndWxsaS4gLS0tIFJlc29sdmUgdG9k\nbywgZXhpdCB3aXRoIGVycm9yIGlmIGltYWdlIHNwZWNpZmllZCBpcyBub3QgYWN0aW9uYWJsZS4K",
+                "shepherd.name": "Testimage",
+                "shepherd.version": "0.0.0"
             }
         };
 
@@ -329,15 +371,15 @@ describe('Docker image plan loader', function () {
                 imagetag: '0.0.0'
             },
             dockerLabels:{
-                "is.icelandairlabs.builddate": "Tue 26 Dec 14:52:54 GMT 2017",
-                "is.icelandairlabs.dbmigration": "testenvimage-migrations:0.0.0",
-                "is.icelandairlabs.git.branch": "master",
-                "is.icelandairlabs.git.hash": "b14892def916aa1fffa9728a5d58f7359f982c02",
-                "is.icelandairlabs.git.url": "https://github.com/Icelandair/shepherd.git",
-                "is.icelandairlabs.kube.config.tar.base64": "H4sIAEZiQloAA+1XTXPiOBDlzK9QpXLaKoFtDEz5RhLPrmvCRwEzmRsl7A5Rxba8sgyhsvnvK9t8\nGBsCSSbJTq3fBSy1XkvqVuupVncgcNnSA1/UK+8DRaLdbsa/arupZn/XqKgNTW21G0qrqVcUVdM1\npYKa7zSfHUShIByhyixyXfqM3bH+3xS1bPwXiwWmNrjEdwjl2GZebdtbW3ru63zEAW619EPxbzR0\nbTf+mqqozQpSfu1S9+N/Hn8S0B/AQ8p8A8GDAD/+G9bn6hQEUav31HcMdLVJgqonmx0iiFFFyCce\nGKiYNLLLJVNww9joWTOEBAVuoFvOfOnbqYYB2PEoLj1Sm4QG0uSXAC9wiYCULzuFGFlfR/3t8Rk3\nrf3GoB6ZwUCGewQ2B5Fhxituh9n3wDGHGQ0FX+JAGuMwsV7Z2pKbUF/ubHZ0wmyg88fx4Hpy1b/8\nZg4nVrfzp/m0MTph+vHuhCziNmTIk42gHhW5NjmVIDKQUvuSa/bAY3xpoKaqdXe6OPwdQXiQRz/A\nozVbWZ6A8TwF3u7KQPYa6Iua40qXfidEgAPOHpa5btkmmM1cA40vB89T63p+nlvu8EXkc+ZGHnRZ\n5BfXk3JuwyQzMcQ2yJXnyDkQp++7cpsEjyC/gzH3gIg7A53Vk9H1XcqzvW79GfUfMLHd1zsDYdcT\nmnpMU8/6AX++f7XD772x1TUnZu+HNez3umZvnHMxJ24EXznz8hmUHItbOuuS4Bssh3BbNFjH6fzR\n/DnoD8fq0x6Te5Brk/6LJyt7piaj0fCEY4XDkL/xaLU+7mil2binJB1JwrQ47fpN23rJ8PgSxHkO\nuTkxD72VlVhAweXeBNxEeNfXwd0/kMVUlvzCNuE08os72evKyltIjSDJ601/LZ5M9bNv2P82jum/\nEPhcNr1e/FWO6j9Nfub0n6JJ81L/fQCy+m++1nujNOinij3i+0wQEQtHA6VyapU1sYis3UdT4D4I\nCGuU1ckixC4jDp4SySLrS3ob4+39e/bH2UsUZBhNHebJuz++NUbfL6Sw6nas3mQwNL9aP5/iKaRK\nkwVbu7TTvJqM+4P1gF6nuxJiAognBaJLg40gFctATuFaTvxiNe9qRuTg5K9UNEo6nvAZiB2Rk5c2\nm/VmRut6ozB8LWQK8iVLEIILtmD85XobY1z91SlQZsDvlAGfXYBKfCqO3P+YyizhPnHfIgSO3P9K\nQ2/m7n9NVdrl/f8ReHPx32TIiRV7a78urIUaqsZJkat5ZY17HxzT/+l77k3y/+j5l+/bvP5XlUZ5\n/j8Ce8//5foRf1oF2HnDZ2tARkWtSTaPcwP9gxOj88cLEkJLvwKbOWDc3NxMrEvzutO76ljDiTWY\n3Pxljc1razR+Kg9yiRIlSpQoUaJEiRIlSrwa/wJ4qk95ACgAAA==",
-                "is.icelandairlabs.lastcommits": "VGh1LCAyMSBEZWMgMjAxNyAxMDo0NTo0NSArMDAwMCBieSBHdcOwbGF1Z3VyIFMuIEVnaWxzc29u\nLiAtLS0gQmV0dGVyIHVzZSByaWdodCBtYWtlIHRhcmdldCBXZWQsIDIwIERlYyAyMDE3IDE4OjE1\nOjUwICswMDAwIGJ5IEd1w7BsYXVndXIgUy4gRWdpbHNzb24uIC0tLSBBIGxpdHRsZSB0cmlja2Vy\neSB0byBtYWtlIGphc21pbmUgcnVubmFibGUgd2l0aCBzcmMgZGlyIG1hcHBlZCBpbiBkb2NrZXIt\nY29tcG9zZS4gV2VkLCAyMCBEZWMgMjAxNyAxNzoxMDozOCArMDAwMCBieSBHdcOwbGF1Z3VyIFMu\nIEVnaWxzc29uLiAtLS0gSmVua2lucyBqb2IgY2Fubm90IHVzZSAtaXQgV2VkLCAyMCBEZWMgMjAx\nNyAxNjo1OToxMyArMDAwMCBieSBHdcOwbGF1Z3VyIFMuIEVnaWxzc29uLiAtLS0gQWxsIHRlc3Rz\nIG5vdyBydW5uaW5nIGluIGRvY2tlciBpbWFnZXMuIEFkZGVkIEplbmtpbnNmaWxlLiBQbHVzIGxv\ndHMgb2Ygc21hbGxlciBpbXByb3ZlbWVudHMvY2hhbmdlcy4gV2VkLCAyMCBEZWMgMjAxNyAwOToz\nMToxMCArMDAwMCBieSBHdcOwbGF1Z3VyIEVnaWxzc29uIEBndWxsaS4gLS0tIFJlc29sdmUgdG9k\nbywgZXhpdCB3aXRoIGVycm9yIGlmIGltYWdlIHNwZWNpZmllZCBpcyBub3QgYWN0aW9uYWJsZS4K",
-                "is.icelandairlabs.name": "Testimage",
-                "is.icelandairlabs.version": "0.0.0"
+                "shepherd.builddate": "Tue 26 Dec 14:52:54 GMT 2017",
+                "shepherd.dbmigration": "testenvimage-migrations:0.0.0",
+                "shepherd.git.branch": "master",
+                "shepherd.git.hash": "b14892def916aa1fffa9728a5d58f7359f982c02",
+                "shepherd.git.url": "https://github.com/Icelandair/shepherd.git",
+                "shepherd.kube.config.tar.base64": "H4sIAEZiQloAA+1XTXPiOBDlzK9QpXLaKoFtDEz5RhLPrmvCRwEzmRsl7A5Rxba8sgyhsvnvK9t8\nGBsCSSbJTq3fBSy1XkvqVuupVncgcNnSA1/UK+8DRaLdbsa/arupZn/XqKgNTW21G0qrqVcUVdM1\npYKa7zSfHUShIByhyixyXfqM3bH+3xS1bPwXiwWmNrjEdwjl2GZebdtbW3ru63zEAW619EPxbzR0\nbTf+mqqozQpSfu1S9+N/Hn8S0B/AQ8p8A8GDAD/+G9bn6hQEUav31HcMdLVJgqonmx0iiFFFyCce\nGKiYNLLLJVNww9joWTOEBAVuoFvOfOnbqYYB2PEoLj1Sm4QG0uSXAC9wiYCULzuFGFlfR/3t8Rk3\nrf3GoB6ZwUCGewQ2B5Fhxituh9n3wDGHGQ0FX+JAGuMwsV7Z2pKbUF/ubHZ0wmyg88fx4Hpy1b/8\nZg4nVrfzp/m0MTph+vHuhCziNmTIk42gHhW5NjmVIDKQUvuSa/bAY3xpoKaqdXe6OPwdQXiQRz/A\nozVbWZ6A8TwF3u7KQPYa6Iua40qXfidEgAPOHpa5btkmmM1cA40vB89T63p+nlvu8EXkc+ZGHnRZ\n5BfXk3JuwyQzMcQ2yJXnyDkQp++7cpsEjyC/gzH3gIg7A53Vk9H1XcqzvW79GfUfMLHd1zsDYdcT\nmnpMU8/6AX++f7XD772x1TUnZu+HNez3umZvnHMxJ24EXznz8hmUHItbOuuS4Bssh3BbNFjH6fzR\n/DnoD8fq0x6Te5Brk/6LJyt7piaj0fCEY4XDkL/xaLU+7mil2binJB1JwrQ47fpN23rJ8PgSxHkO\nuTkxD72VlVhAweXeBNxEeNfXwd0/kMVUlvzCNuE08os72evKyltIjSDJ601/LZ5M9bNv2P82jum/\nEPhcNr1e/FWO6j9Nfub0n6JJ81L/fQCy+m++1nujNOinij3i+0wQEQtHA6VyapU1sYis3UdT4D4I\nCGuU1ckixC4jDp4SySLrS3ob4+39e/bH2UsUZBhNHebJuz++NUbfL6Sw6nas3mQwNL9aP5/iKaRK\nkwVbu7TTvJqM+4P1gF6nuxJiAognBaJLg40gFctATuFaTvxiNe9qRuTg5K9UNEo6nvAZiB2Rk5c2\nm/VmRut6ozB8LWQK8iVLEIILtmD85XobY1z91SlQZsDvlAGfXYBKfCqO3P+YyizhPnHfIgSO3P9K\nQ2/m7n9NVdrl/f8ReHPx32TIiRV7a78urIUaqsZJkat5ZY17HxzT/+l77k3y/+j5l+/bvP5XlUZ5\n/j8Ce8//5foRf1oF2HnDZ2tARkWtSTaPcwP9gxOj88cLEkJLvwKbOWDc3NxMrEvzutO76ljDiTWY\n3Pxljc1razR+Kg9yiRIlSpQoUaJEiRIlSrwa/wJ4qk95ACgAAA==",
+                "shepherd.lastcommits": "VGh1LCAyMSBEZWMgMjAxNyAxMDo0NTo0NSArMDAwMCBieSBHdcOwbGF1Z3VyIFMuIEVnaWxzc29u\nLiAtLS0gQmV0dGVyIHVzZSByaWdodCBtYWtlIHRhcmdldCBXZWQsIDIwIERlYyAyMDE3IDE4OjE1\nOjUwICswMDAwIGJ5IEd1w7BsYXVndXIgUy4gRWdpbHNzb24uIC0tLSBBIGxpdHRsZSB0cmlja2Vy\neSB0byBtYWtlIGphc21pbmUgcnVubmFibGUgd2l0aCBzcmMgZGlyIG1hcHBlZCBpbiBkb2NrZXIt\nY29tcG9zZS4gV2VkLCAyMCBEZWMgMjAxNyAxNzoxMDozOCArMDAwMCBieSBHdcOwbGF1Z3VyIFMu\nIEVnaWxzc29uLiAtLS0gSmVua2lucyBqb2IgY2Fubm90IHVzZSAtaXQgV2VkLCAyMCBEZWMgMjAx\nNyAxNjo1OToxMyArMDAwMCBieSBHdcOwbGF1Z3VyIFMuIEVnaWxzc29uLiAtLS0gQWxsIHRlc3Rz\nIG5vdyBydW5uaW5nIGluIGRvY2tlciBpbWFnZXMuIEFkZGVkIEplbmtpbnNmaWxlLiBQbHVzIGxv\ndHMgb2Ygc21hbGxlciBpbXByb3ZlbWVudHMvY2hhbmdlcy4gV2VkLCAyMCBEZWMgMjAxNyAwOToz\nMToxMCArMDAwMCBieSBHdcOwbGF1Z3VyIEVnaWxzc29uIEBndWxsaS4gLS0tIFJlc29sdmUgdG9k\nbywgZXhpdCB3aXRoIGVycm9yIGlmIGltYWdlIHNwZWNpZmllZCBpcyBub3QgYWN0aW9uYWJsZS4K",
+                "shepherd.name": "Testimage",
+                "shepherd.version": "0.0.0"
             }
         };
 

@@ -85,30 +85,30 @@ RUN chmod +x ./entrypoint.sh
 ENTRYPOINT ["./entrypoint.sh"]
 
 
-LABEL is.icelandairlabs.name="Shepherd agent"
+LABEL shepherd.name="Shepherd agent"
 
 ARG BRANCH_NAME
-LABEL is.icelandairlabs.git.branch=${BRANCH_NAME}
+LABEL shepherd.git.branch=${BRANCH_NAME}
 
 ARG GIT_URL
-LABEL is.icelandairlabs.git.url=${GIT_URL}
+LABEL shepherd.git.url=${GIT_URL}
 
 ARG GIT_HASH
-LABEL is.icelandairlabs.git.hash=${GIT_HASH}
+LABEL shepherd.git.hash=${GIT_HASH}
 
 ARG SEMANTIC_VERSION
-LABEL is.icelandairlabs.version=${SEMANTIC_VERSION}
+LABEL shepherd.version=${SEMANTIC_VERSION}
 
 ARG LAST_COMMITS
-LABEL is.icelandairlabs.lastcommits=${LAST_COMMITS}
+LABEL shepherd.lastcommits=${LAST_COMMITS}
 
 ARG BUILD_DATE
-LABEL is.icelandairlabs.builddate=${BUILD_DATE}
+LABEL shepherd.builddate=${BUILD_DATE}
 
 # Has no migrations docker
 #ARG MIGRATIONS_DOCKERIMAGE
-#LABEL is.icelandairlabs.dbmigration=${MIGRATIONS_DOCKERIMAGE}
+#LABEL shepherd.dbmigration=${MIGRATIONS_DOCKERIMAGE}
 
 # Agent is not kubernetes deployable
 #ARG KUBECONFIG_B64
-#LABEL is.icelandairlabs.kube.config.tar.base64=${KUBECONFIG_B64}
+#LABEL shepherd.kube.config.tar.base64=${KUBECONFIG_B64}

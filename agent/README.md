@@ -4,12 +4,21 @@ Role is to run in CI environment, pass on configuration to infrastructure provis
 and pass on necessary values from infrastructure to deployments.
 
 ## Why Shepherd
-1. Group configuration, secret management and deployment management of microservices and databases together, 
+Services and library granularity has been increasing in the last years. This means that teams are managing more
+and more deployments, and the DevOps trend means that they are also responsible for managing the infrastructure
+for those services. In the past you would expect teams to be responsible for a handful of services and not
+the infrastructure. Now, you can see a small team being responsible for scores of services/webs, and managing
+the infrastructure its running on. 
+
+Shepherd is a deployment manager designed to simplify this task.
+
+It does this by
+1. Grouping configuration, secret management and deployment management of microservices and databases together, 
 ideally along with your infrastructure as code. On the upside it means more reuse of code, and fewer places to look for 
 configuration. On the downside it means less local control of the deployment process for each microservice. This should be offset by 
 grouping related services together for configuration management, rather than looking at shepherd config as
 "global" in your context.
-2. Decouple deployment management from individual deployment and infrastructure management technologies. By relying
+2. Decoupling deployment management from individual deployment and infrastructure management technologies. By relying
 on docker for packaging deployment definitions and deployment execution, using Shepherd for deployment management 
 decouples your release management workflow from individual technologies, meaning more freedom to experiment with new
 approaches, or mix and match different approaches within the same deployment management process, without losing
@@ -91,32 +100,32 @@ docker labels to enable this. All labels:
 
 
 ```
-LABEL is.icelandairlabs.name="service-name"
+LABEL shepherd.name="service-name"
 ARG BRANCH_NAME
 ENV LABS_BRANCH_NAME ${BRANCH_NAME}
 
-LABEL is.icelandairlabs.git.branch=${BRANCH_NAME}
+LABEL shepherd.git.branch=${BRANCH_NAME}
 ARG GIT_URL
-LABEL is.icelandairlabs.git.url=${GIT_URL}
+LABEL shepherd.git.url=${GIT_URL}
 ENV LABS_GIT_URL ${GIT_URL}
 
 ARG GIT_HASH
-LABEL is.icelandairlabs.git.hash=${GIT_HASH}
+LABEL shepherd.git.hash=${GIT_HASH}
 ENV LABS_GIT_HASH ${GIT_HASH}
 
 ARG SEMANTIC_VERSION
-LABEL is.icelandairlabs.version=${SEMANTIC_VERSION}
+LABEL shepherd.version=${SEMANTIC_VERSION}
 ENV LABS_VERSION ${SEMANTIC_VERSION}
 
 ARG LAST_COMMITS
-LABEL is.icelandairlabs.lastcommits=${LAST_COMMITS}
+LABEL shepherd.lastcommits=${LAST_COMMITS}
 
 ARG BUILD_DATE
-LABEL is.icelandairlabs.builddate=${BUILD_DATE}
+LABEL shepherd.builddate=${BUILD_DATE}
 ENV LABS_BUILD_DATE ${BUILD_DATE}
 
 ARG KUBECONFIG_B64
-LABEL is.icelandairlabs.kube.config.tar.base64=${KUBECONFIG_B64}
+LABEL shepherd.kube.config.tar.base64=${KUBECONFIG_B64}
 
 ```
 

@@ -78,26 +78,37 @@ module.exports = function (injected) {
     }
 
     function getKubeConfigTarLabel (imageMetadata) {
-        return imageMetadata.dockerLabels['shepherd.kube.config.tar.base64'] || imageMetadata.dockerLabels['is.icelandairlabs.kube.config.tar.base64'];
+        return imageMetadata.dockerLabels['shepherd.kube.config.tar.base64'];
     }
 
     function getDeployerLabel (imageMetadata) {
-        return imageMetadata.dockerLabels['shepherd.deployer'] || imageMetadata.dockerLabels['is.icelandairlabs.deployer'];
+        return imageMetadata.dockerLabels['shepherd.deployer'];
     }
 
     function getDeployerCommandLabel (imageMetadata) {
-        return imageMetadata.dockerLabels['shepherd.deployer.command'] || imageMetadata.dockerLabels['is.icelandairlabs.deployer.command'];
+        return imageMetadata.dockerLabels['shepherd.deployer.command'];
     }
 
     function getEnvVariablesLabel (imageMetadata) {
         return imageMetadata.dockerLabels['shepherd.environment.variables']
-            || imageMetadata.dockerLabels['shepherd.deployer.environment']
-            || imageMetadata.dockerLabels['is.icelandairlabs.environment.variables']
-            || imageMetadata.dockerLabels['is.icelandairlabs.deployer.environment'];
+            || imageMetadata.dockerLabels['shepherd.deployer.environment'];
+    }
+
+    function rewriteDockerLabels (imageMetadata, obsoleteQualifier, newQualifier) {
+        _(imageMetadata.dockerLabels).keys().each((dockerLabelKey) => {
+            if (dockerLabelKey.startsWith(obsoleteQualifier)) {
+                const newKey = dockerLabelKey.replace(obsoleteQualifier, newQualifier);
+                imageMetadata.dockerLabels[newKey] = imageMetadata.dockerLabels[dockerLabelKey];
+                delete imageMetadata.dockerLabels[dockerLabelKey];
+            }
+        });
     }
 
     function calculateImagePlan (imageMetadata) {
         return new Promise(function (resolve, reject) {
+
+            rewriteDockerLabels(imageMetadata, 'is.icelandairlabs', 'shepherd');
+
             let plan = {
                 herdName: imageMetadata.imageDefinition.herdName
             };
@@ -108,6 +119,7 @@ module.exports = function (injected) {
                     untarBase64String(deploymentFilesArchive).then(function (files) {
                         plan.files = files;
                         plan.deployments = {};
+                        plan.dockerLabels = imageMetadata.dockerLabels;
                         let planPromises = [];
                         let nameReferenceChanges = {};
                         let featureDeploymentConfig = {
@@ -195,7 +207,8 @@ module.exports = function (injected) {
                             type: 'deployer',
                             operation: 'run',
                             command: 'deploy',
-                            herdName: herdName
+                            herdName: herdName,
+                            dockerLabels: imageMetadata.dockerLabels
                         };
 
                         let envList = [];
@@ -233,10 +246,10 @@ module.exports = function (injected) {
                         reject(e);
                     }
                 } else {
-                    reject('No plan in place to deal with ' + JSON.stringify(imageMetadata));
+                    reject('No deployment plan found in ' + JSON.stringify(imageMetadata));
                 }
             } else {
-                reject('No plan in place to deal with ' + JSON.stringify(imageMetadata));
+                reject('No deployment plan found in ' + JSON.stringify(imageMetadata));
             }
         });
     }

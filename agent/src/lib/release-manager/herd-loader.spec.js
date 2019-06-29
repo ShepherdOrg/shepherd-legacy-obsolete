@@ -197,9 +197,8 @@ describe('herd.yaml loading', function () {
             });
         });
 
-        it('should load deployer plan by migration image reference', function () {
+        fit('should load deployer plan by migration image reference', function () {
 
-            console.debug('loadedPlan.addedDockerDeployers',loadedPlan.addedDockerDeployers['testenvimage-migrations:0.0.0']);
             expect(loadedPlan.addedDockerDeployers['testenvimage-migrations:0.0.0'].dockerParameters).to.contain('testenvimage-migrations:0.0.0');
             expect(Object.keys(loadedPlan.addedDockerDeployers)).to.contain('testenvimage-migrations:0.0.0');
         });
