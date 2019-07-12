@@ -14,7 +14,7 @@
     "express": "^4.10.4",
     "express-session": "^1.9.2",
     "jade": "^1.7.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "parallelshell": "^2.0.0",
     "pg": "^6.1.0",
     "socket.io": "^1.5.1",
