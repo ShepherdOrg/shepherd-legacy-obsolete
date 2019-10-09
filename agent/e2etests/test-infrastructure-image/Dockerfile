@@ -30,5 +30,6 @@ LABEL shepherd.environment.variables="DB_HOST=\${MICROSERVICES_POSTGRES_RDS_HOST
 # Means it will receive full environment. Should be specified in infrastructure section.
 # Will get a /exports/ mount for exporting infrastructure environment when required. NOTE: This is a fallback when other
 # means for service/resource discovery are not available. Most often, DNS services should be used.
+# Infrastructure images will also be executed ahead of other if there are multiple changes.
 LABEL shepherd.infrastructure="true"
 

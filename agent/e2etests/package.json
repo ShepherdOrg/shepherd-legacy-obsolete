@@ -1,0 +1,7 @@
+{
+  "name": "shepherd-agent-e2etests",
+  "version": "1.0.0",
+  "dependencies": {
+    "@shepherdorg/cli": "^0.0.1"
+  }
+}
