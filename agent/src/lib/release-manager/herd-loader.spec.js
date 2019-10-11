@@ -78,7 +78,6 @@ describe('herd.yaml loading', function () {
     });
 
     it('should fail if file does not exist', function (done) {
-        console.log('Loading', __dirname + '/testdata/does-not-exist.yaml')
         loader.loadHerd(__dirname + '/testdata/does-not-exist.yaml').then(function (plan) {
             expect().fail('Should not finish!')
         }).catch(function (error) {
@@ -197,12 +196,13 @@ describe('herd.yaml loading', function () {
             });
         });
 
-        fit('should load deployer plan by migration image reference', function () {
+        it('should load deployer plan by migration image reference', function () {
 
             expect(loadedPlan.addedDockerDeployers['testenvimage-migrations:0.0.0'].dockerParameters).to.contain('testenvimage-migrations:0.0.0');
             expect(Object.keys(loadedPlan.addedDockerDeployers)).to.contain('testenvimage-migrations:0.0.0');
         });
     });
+
 
 
     xdescribe('SLOW TEST: non-existing image', function () {

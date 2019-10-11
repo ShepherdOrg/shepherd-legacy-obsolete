@@ -9,3 +9,5 @@ echo "Rebuilding test images"
 (cd ${THISDIR}/test-image && ./build-docker.sh)
 (cd ${THISDIR}/test-image2 && ./build-docker.sh)
 (cd ${THISDIR}/test-image3 && ./build-docker.sh)
+
+(cd ${THISDIR}/test-image-json-metadata && ./build-docker.sh)

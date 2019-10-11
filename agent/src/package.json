@@ -5,6 +5,7 @@
   "private": true,
   "main": "run.js",
   "dependencies": {
+    "@shepherdorg/metadata": "^0.0.5",
     "@shepherdorg/docker-image-metadata-loader": "0.0.2",
     "@shepherdorg/exec": "0.0.1",
     "bluebird": "3.5.1",

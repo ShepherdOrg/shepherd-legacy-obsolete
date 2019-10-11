@@ -3,17 +3,20 @@ const _ = require('lodash');
 
 Handlebars.registerHelper('Base64Encode', (str, param) => {
     let postfix;
-    console.log('typeof param', typeof param);
     if (typeof param !== 'object') {
         postfix = param;
     } else {
         postfix = '';
     }
-    return new Buffer(str + postfix).toString('base64');
+    return Buffer(str + postfix).toString('base64');
 });
 
 Handlebars.registerHelper('Base64Decode', (str) => {
-    return new Buffer.from(str, 'base64').toString();
+    if(!str){
+        return ''
+    }
+
+    return Buffer.from(str, 'base64').toString();
 });
 
 module.exports = function (templateString) {
@@ -34,7 +37,7 @@ module.exports = function (templateString) {
             const startOfFile = templateString.substring(0, 100) + '...';
             throw new Error(`Handlebars error in file starting with : ${startOfFile}
 ${err.message}.
-Available properties: ${_(view).keys().join(', ')}`);
+Available properties: ${_(view).keys().filter((key)=>!key.startsWith('npm_')).join(', ')}`);
         } else {
             throw err;
         }

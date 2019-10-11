@@ -336,7 +336,7 @@ Tests are setup using jasmine. There are two types of tests:
 To run, execute ```npm run specs``` in ```src``` folder.
 
 * integrationtests are slower running, may need external dependencies, like
-a database or webservice to ber runnings. To run, execute ```npm run integrationtest```
+a database or webservice to be running. To run, execute ```npm run integrationtest```
 
 integrationtests require postgres to be running on localhost for some tests directly through npm run. Run like this:
 

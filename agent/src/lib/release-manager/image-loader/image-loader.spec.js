@@ -185,8 +185,9 @@ describe('Docker image plan loader', function () {
         });
 
         it('should rewrite docker labels starting with is.icelandairlabs to labels starting with shepherd', () => {
-            expect(loadedPlan.dockerLabels['shepherd.version']).to.be('0.1.2');
-            expect(loadedPlan.dockerLabels['shepherd.name']).to.be('TestimageFromIcelandairlabs');
+            console.log('loadedPlan',loadedPlan );
+            expect(loadedPlan.displayName).to.be('TestimageFromIcelandairlabs');
+
             expect(loadedPlan.command).to.be('deploy');
         });
 
@@ -283,20 +284,20 @@ describe('Docker image plan loader', function () {
 
 
             it('should report filename in error', function () {
-                expect(loadError).to.contain('./deployment/www-icelandair-com.deployment.yml');
+                expect(loadError.message).to.contain('./deployment/www-icelandair-com.deployment.yml');
             });
 
             it('should report origin in error', function () {
-                expect(loadError).to.contain('testenvimage-migrations');
+                expect(loadError.message).to.contain('testenvimage-migrations');
             });
 
             it('should report start of file in error', function () {
-                expect(loadError).to.contain('name: www-icelandair-com');
-                expect(loadError).to.contain('file starting with');
+                expect(loadError.message).to.contain('name: www-icelandair-com');
+                expect(loadError.message).to.contain('file starting with');
             });
 
             it('should report variable in error', function () {
-                expect(loadError).to.contain('"EXPORT1" not defined');
+                expect(loadError.message).to.contain('"EXPORT1" not defined');
             });
         });
     });
@@ -451,21 +452,21 @@ describe('Docker image plan loader', function () {
 
 
             it('should report filename in error', function () {
-                expect(loadError).to.contain('./deployment/www-icelandair-com.deployment.yml');
+                expect(loadError.message).to.contain('./deployment/www-icelandair-com.deployment.yml');
             });
 
             it('should report origin in error', function () {
-                expect(loadError).to.contain('testenvimage-migrations');
+                expect(loadError.message).to.contain('testenvimage-migrations');
 
             });
 
             it('should report line in error', function () {
-                expect(loadError).to.contain('line ');
+                expect(loadError.message).to.contain('line ');
 
             });
 
             it('should report variable in error', function () {
-                expect(loadError).to.contain('${EXPORT1}');
+                expect(loadError.message).to.contain('${EXPORT1}');
 
             });
         });
@@ -488,21 +489,21 @@ describe('Docker image plan loader', function () {
 
 
             it('should report filename in error', function () {
-                expect(loadError).to.contain('/deployment/www-icelandair-com.config.yml');
+                expect(loadError.message).to.contain('/deployment/www-icelandair-com.config.yml');
             });
 
             it('should report origin in error', function () {
-                expect(loadError).to.contain('testenvimage');
+                expect(loadError.message).to.contain('testenvimage');
 
             });
 
             it('should report line in error', function () {
-                expect(loadError).to.contain('line 8');
+                expect(loadError.message).to.contain('line 8');
 
             });
 
             it('should report missing base64 encoded variable in error', function () {
-                expect(loadError).to.contain('WWW_ICELANDAIR_IP_WHITELIST');
+                expect(loadError.message).to.contain('WWW_ICELANDAIR_IP_WHITELIST');
 
             });
         });
