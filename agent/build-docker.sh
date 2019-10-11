@@ -7,7 +7,7 @@ PUSH=$1
 MAJOR_MINOR=0.2
 
 if [ -z "${REPO_NAME}" ]; then
-	export REPO_NAME=icelandair/shepherd
+	export REPO_NAME=shepherdorg/shepherd
 fi
 
 if [ -z "${CIRCLE_BUILD_NUM}" ]; then

@@ -1,5 +1,5 @@
 docker-testing-images:
-	./build-test-images.sh
+	npm install && ./build-test-images.sh
 
 watch-integrationtests:
 	docker exec -it testenv_shepherd-agent_1 npm run watch-integrationtests
