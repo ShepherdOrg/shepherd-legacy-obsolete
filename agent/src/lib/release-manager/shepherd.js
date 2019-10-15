@@ -3,7 +3,7 @@
 let path = require('path');
 
 /*
-This is the main entry point for shepherd.
+This is the main entry point for shepherd deployer agent
 
 Usage: shepherd.js /somewhere/is/a/herd.yaml
  */
@@ -32,12 +32,12 @@ if(testMode){
 let stateStoreBackend;
 
 if(process.env.SHEPHERD_PG_HOST){
-    const pgConfig = require('../state-store/postgres-backend/pg-config')();
-    const PostgresStore = require('../state-store/postgres-backend');
+    const pgConfig = require('@shepherdorg/postgres-backend').PgConfig();
+    const PostgresStore = require('@shepherdorg/postgres-backend').PostgresStore;
     stateStoreBackend = PostgresStore(pgConfig);
 
 } else{
-    const FileStore = require('../state-store/filestore-backend');
+    const FileStore = require('@shepherdorg/filestore-backend').FileStore;
     let homedir = require('os').homedir();
     let shepherdStoreDir = path.join(homedir,'.shepherdstore',process.env.ENV || 'default');
     console.log('Using shepherd store directory ', shepherdStoreDir);
@@ -45,7 +45,7 @@ if(process.env.SHEPHERD_PG_HOST){
 
 }
 
-const StateStore = require("../state-store/state-store");
+const ReleaseStateStore = require("@shepherdorg/state-store").ReleaseStateStore;
 const HerdLoader = require('./herd-loader');
 const ReleasePlanModule = require('./release-plan');
 const exec = require('@shepherdorg/exec');
@@ -58,7 +58,7 @@ function terminateProcess(exitCode) {
 
 stateStoreBackend.connect().then(function () {
 
-    let releaseStateStore = StateStore.ReleaseStateStore(inject({storageBackend: stateStoreBackend}));
+    let releaseStateStore = ReleaseStateStore({storageBackend: stateStoreBackend});
 
 
     const ReleasePlan = ReleasePlanModule(inject({

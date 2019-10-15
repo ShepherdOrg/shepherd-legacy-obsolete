@@ -3,8 +3,9 @@ const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 
-const PgBackend = require("../state-store/postgres-backend");
-const PgConfig = require("../state-store/postgres-backend/pg-config");
+const PgBackend = require("@shepherdorg/postgres-backend").PostgresStore;
+const PgConfig = require('@shepherdorg/postgres-backend').PgConfig;
+
 const cleanDir = require("../test-tools/clean-dir");
 
 describe('run all deployers with infrastructure', function () {
@@ -22,6 +23,7 @@ describe('run all deployers with infrastructure', function () {
     });
 
     describe('default state storage', function () {
+
         beforeEach(()=>{
             cleanDir(path.join(require('os').homedir(), ".shepherdstore"));
         });

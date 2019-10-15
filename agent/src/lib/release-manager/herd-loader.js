@@ -8,12 +8,12 @@ const calculateImagePlan = require('./image-loader')(inject({
     kubeSupportedExtensions
 }));
 
-const labelsLoader = require('@shepherdorg/docker-image-metadata-loader')
+const labelsLoader = require('@shepherdorg/docker-image-metadata-loader');
 
 function splitDockerImageTag (imgObj) {
-  let colonIdx = imgObj.dockerImage.indexOf(":");
-  imgObj.image = imgObj.dockerImage.slice(0, colonIdx);
-  imgObj.imagetag = imgObj.dockerImage.slice(colonIdx + 1, imgObj.dockerImage.length);
+    let colonIdx = imgObj.dockerImage.indexOf(':');
+    imgObj.image = imgObj.dockerImage.slice(0, colonIdx);
+    imgObj.imagetag = imgObj.dockerImage.slice(colonIdx + 1, imgObj.dockerImage.length);
 }
 
 module.exports = function (injected) {
@@ -32,10 +32,8 @@ module.exports = function (injected) {
 
     const cmd = injected('exec');
 
-  const dockerRegistries = labelsLoader.getDockerRegistryClientsFromConfig()
-  const loader = labelsLoader.imageLabelsLoader(inject({'dockerRegistries':dockerRegistries, logger: logger}))
-
-
+    const dockerRegistries = labelsLoader.getDockerRegistryClientsFromConfig();
+    const loader = labelsLoader.imageLabelsLoader(inject({'dockerRegistries': dockerRegistries, logger: logger}));
 
     const calculateInfrastructurePlan = require('./infrastructure-loader')(inject({
         logger,
@@ -47,14 +45,13 @@ module.exports = function (injected) {
     }
 
     function loadImageMetadata (imageDef) {
-      return loader.getImageLabels(imageDef)
+        return loader.getImageLabels(imageDef);
     }
 
     return {
         loadHerd (fileName) {
             return new Promise(function (resolve, reject) {
                 try {
-
                     if (fs.existsSync(fileName)) {
                         let releasePlan = ReleasePlan();
 
@@ -128,8 +125,8 @@ module.exports = function (injected) {
                                         imgObj.herdName = imgName;
                                         logger.debug('Deployment image - loading image meta data for docker image', JSON.stringify(imgObj));
 
-                                        if(!imgObj.image && imgObj.dockerImage){
-                                          splitDockerImageTag(imgObj);
+                                        if (!imgObj.image && imgObj.dockerImage) {
+                                            splitDockerImageTag(imgObj);
                                         }
                                         return loadImageMetadata(imgObj)
                                             .then(addDependencies)
@@ -163,7 +160,7 @@ module.exports = function (injected) {
 
                             return envMap;
 
-                        }).then(function (infrastructureResults) {
+                        }).then(function (_infrastructureResults) {
 
                             _.extend(process.env, envMap);
 
@@ -192,13 +189,10 @@ module.exports = function (injected) {
 
                         });
 
-                    }
-                    else {
+                    } else {
                         reject(fileName + ' does not exist!');
                     }
-
-                }
-                catch
+                } catch
                     (e) {
                     reject(e);
                 }

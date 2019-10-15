@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-echo -------------------- ABOUT MIGRATION TOOL --------------------
-cat /code/metadata/about.env
-echo ------------------------- ABOUT END -------------------------
-
 # Put dryrun/fake kubectl/aws at front in path
 export PATH=/code/testbin:/code/bin:${PATH}
 export KUBE_CONFIG=/code/testbin/kubectl # Needs to point to existing file to prevent attempt to fetch kubectl from aws

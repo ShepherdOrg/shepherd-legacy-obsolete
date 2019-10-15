@@ -16,11 +16,9 @@ function retrieve-kube-config(){
 
 	if [ "${CONFIG_EXISTS}" = "0" ];
 	then
-		echo "Fetching KUBECONFIG from  ${KUBE_CONFIG_S3_PATH}"
+		echo "Fetching KUBECONFIG from ${KUBE_CONFIG_S3_PATH}"
 		aws s3 cp ${KUBE_CONFIG_S3_PATH} ${KUBECONFIG}
 		export KUBECONFIG=$(pwd)/kubeconf/${CLUSTER_NAME}
-
-
 	else
 		echo "${KUBE_CONFIG_S3_PATH} not found, aws s3 exit code ${CONFIG_EXISTS}"
 		exit ${CONFIG_EXISTS}
