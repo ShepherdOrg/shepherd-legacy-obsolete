@@ -15,7 +15,7 @@
     "bunyan": "1.8.12",
     "db-migrate": "0.10.2",
     "db-migrate-pg": "0.1.15",
-    "handlebars": "4.1.2",
+    "handlebars": "4.3.0",
     "js-yaml": "3.10.0",
     "lodash": "4.17.4",
     "md5-file": "3.2.3",
